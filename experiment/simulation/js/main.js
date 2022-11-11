@@ -340,8 +340,8 @@ function syst(){
       
     Plotly.newPlot('figure3', data, layout, config);
       var update = {
-        width: 500,
-        height: 400
+        width: 400,
+        height: 300
     };
     Plotly.relayout('figure3', update);
 }
