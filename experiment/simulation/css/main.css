@@ -1366,8 +1366,8 @@ margin-top: 2%;
   }
   .imp .imp-content .left{
   width: 100%;
-  margin-left: 40%;
-  margin-top: -35%;
+  margin-left: 45%;
+  margin-top: -45%;
   }
   .imp .imp-content .middle{
   width: 100%;
@@ -1414,7 +1414,7 @@ margin-top: 2%;
   .sys .sys-content .left{
     width: 100%;
     margin-left: 40%;
-    margin-top: -25%;
+    margin-top: -35%;
   }
   .sys .sys-content .middle{
     width: 100%;
@@ -1449,7 +1449,7 @@ margin-top: 2%;
   position: relative;
   text-align: center;
   color: #000000;
-  font-size: 40px;
+  font-size: 20px;
   font-weight: 500;
   margin-top: 10%;
   font-family: 'Ubuntu', sans-serif;
@@ -1461,7 +1461,7 @@ margin-top: 2%;
   }
   .mva .mva-content .left{
   width: 100%;
-  margin-left: 5%;
+  margin-left: 20%;
   }
   .mva .mva-content .left .input[type=text] {
   width: 100%;
@@ -1533,15 +1533,16 @@ margin-top: 2%;
   }
   .blk .blk-content .middle{
   width: 100%;
-  margin-top: 5%;
+  margin-top: -15%;
   }
   .blk .blk-content .middle1{
   width: 100%;
-  margin-top: 25%;
+  margin-top: 0%;
   }
   .blk .blk-content .middle2{
   width: 100%;
   margin-top: 15%;
+  margin-left: -20%;
   margin-bottom: -15%;
   }
   .blk .blk-content .middle .img{
@@ -1557,7 +1558,7 @@ margin-top: 2%;
   }
   .blk .blk-content .right1{
   width: 100%;
-  margin-top: -65%;
+  margin-top: -75%;
   }
   .blk .blk-content .right2{
   width: 100%;
@@ -1600,7 +1601,7 @@ margin-top: 2%;
   }
   .blk1 .blk1-content .left{
   width: 50%;
-  margin-top: 10%;
+  margin-top: -10%;
   margin-left: 10%;
   }
   .blk1 .blk1-content .left .img{
@@ -1615,13 +1616,13 @@ margin-top: 2%;
   }
   .blk1 .blk1-content .middle1{
     width: 50%;
-    margin-top: 30%;
+    margin-top: 0%;
     margin-bottom: -5%;
   }
   .blk1 .blk1-content .right{
   width: 100%;
-  margin-top: -10%;
-  margin-left: 20%;
+  margin-top: -15%;
+  margin-left: -40%;
   }
   .blk1 .blk1-content .right .img{
   height: 400px;
@@ -1631,13 +1632,13 @@ margin-top: 2%;
   }
   .blk1 .blk1-content .right1{
     width: 100%;
-    margin-top: -30%;
-    margin-left: 10%;
+    margin-top: -60%;
+    margin-left: -20%;
   }
   .blk1 .blk1-content .right2{
       width: 100%;
-      margin-top: -50%;
-      margin-left: 40%;
+      margin-top: -30%;
+      margin-left: -20%;
   }
   .blk1 .blk1-content .right1 .img{
     height: 400px;
