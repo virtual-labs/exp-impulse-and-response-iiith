@@ -1350,6 +1350,7 @@ margin-top: 2%;
   font-size: 20px;
   font-weight: 500;
   margin-top: 10%;
+  margin-left: -10%;
   font-family: 'Ubuntu', sans-serif;
   }
   
@@ -1366,16 +1367,16 @@ margin-top: 2%;
   .imp .imp-content .left{
   width: 100%;
   margin-left: 30%;
-  margin-top: 15%;
+  margin-top: 0%;
   }
   .imp .imp-content .middle{
   width: 50%;
   margin-top: 40%;
-  margin-left: -20%;
+  margin-left: -40%;
   }
   .imp .imp-content .middle1{
     width: 50%;
-    margin-left: -60%;
+    margin-left: -70%;
     margin-top: -20%;
   }
   .imp .imp-content .right{
@@ -1403,16 +1404,16 @@ margin-top: 2%;
   .sys .sys-content .left{
     width: 100%;
     margin-left: 30%;
-    margin-top: 15%;
+    margin-top: 0%;
   }
   .sys .sys-content .middle{
     width: 50%;
     margin-top: 40%;
-    margin-left: -20%;
+    margin-left: -40%;
   }
   .sys .sys-content .middle1{
       width: 50%;
-      margin-left: -35%;
+      margin-left: -45%;
       margin-top: -20%;
   }
   .sys .sys-content .right{
