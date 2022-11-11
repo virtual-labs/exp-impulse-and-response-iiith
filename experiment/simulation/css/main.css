@@ -1367,15 +1367,15 @@ margin-top: 2%;
   .imp .imp-content .left{
   width: 100%;
   margin-left: 30%;
-  margin-top: 0%;
+  margin-top: -15%;
   }
   .imp .imp-content .middle{
-  width: 50%;
+  width: 100%;
   margin-top: 40%;
   margin-left: -40%;
   }
   .imp .imp-content .middle1{
-    width: 50%;
+    width: 100%;
     margin-left: -70%;
     margin-top: -20%;
   }
@@ -1404,15 +1404,15 @@ margin-top: 2%;
   .sys .sys-content .left{
     width: 100%;
     margin-left: 30%;
-    margin-top: 0%;
+    margin-top: -15%;
   }
   .sys .sys-content .middle{
-    width: 50%;
+    width: 100%;
     margin-top: 40%;
-    margin-left: -40%;
+    margin-left: -45%;
   }
   .sys .sys-content .middle1{
-      width: 50%;
+      width: 100%;
       margin-left: -45%;
       margin-top: -20%;
   }
@@ -1450,21 +1450,21 @@ margin-top: 2%;
     margin-top: 10%;
   }
   .mva .mva-content .left{
-  width: 50%;
+  width: 100%;
   margin-left: 5%;
   }
   .mva .mva-content .left .input[type=text] {
-  width: 50%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
   }
   .mva .mva-content .middle{
-  width: 50%;
+  width: 100%;
   margin-left: 15%;
   }
   .mva .mva-content .middle1{
-    width: 50%;
+    width: 100%;
     margin-top: -5%;
     margin-left: 10%;
   }
@@ -1476,7 +1476,7 @@ margin-top: 2%;
   }
   .mva .mva-content .right{
   width: 100%;
-  margin-left: 20%;
+  margin-left: -20%;
   }
   .mva .mva-content .right .img{
   height: 400px;
@@ -1506,12 +1506,12 @@ margin-top: 2%;
   margin-top: 10%;
   }
   .blk .blk-content .left{
-  width: 50%;
+  width: 100%;
   margin-top: -5%;
   margin-left: 10%;
   }
   .blk .blk-content .left1{
-  width: 50%;
+  width: 100%;
   margin-top: -20%;
   margin-left: 10%;
   }
@@ -1522,15 +1522,15 @@ margin-top: 2%;
   border-radius: 6px;
   }
   .blk .blk-content .middle{
-  width: 50%;
+  width: 100%;
   margin-top: 5%;
   }
   .blk .blk-content .middle1{
-  width: 50%;
+  width: 100%;
   margin-top: 25%;
   }
   .blk .blk-content .middle2{
-  width: 50%;
+  width: 100%;
   margin-top: 15%;
   margin-bottom: -15%;
   }
@@ -1543,15 +1543,16 @@ margin-top: 2%;
   .blk .blk-content .right{
   width: 100%;
   margin-top: -35%;
-  margin-left: 20%;
+  margin-left: -20%;
   }
   .blk .blk-content .right1{
   width: 100%;
-  margin-top: -35%;
+  margin-top: -65%;
   }
   .blk .blk-content .right2{
   width: 100%;
-  margin-top: -20%;
+  margin-top: 0%;
+  margin-left: -20%;
   }
   .blk .blk-content .right .img{
   height: 400px;
@@ -1560,7 +1561,7 @@ margin-top: 2%;
   border-radius: 6px;
   }
   .blk .blk-content .right .input[type=text] {
-  width: 40%;
+  width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
   box-sizing: border-box;
