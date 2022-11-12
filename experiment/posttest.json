@@ -2,38 +2,60 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "A system with input $x(t)$, gives the output signal $y(t) = x^2(t) + x(t^2)$. Which of the following properties does this system have?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Only linearity ",
+        "b": "Only time-invariance ",
+        "c": "Both linearity and time-invariance",
+        "d": "None of these "
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "Explanation": "The system is neither linear not time-invariant."
       },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
+      "correctAnswer": "d",
+      "difficulty": "Intermediate"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "Find the magnitude of a 5-point moving average filter $H(\\omega)$, where the output of the system is given by $y[n]=1/5 [x[n+2]+x[n+1]+x[n]+x[n−1]+x[n-2]]?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "$1/5(1+2(\\cos(\\omega) + \\cos(2\\omega)))$",
+        "b": "$\\cos(\\omega) + \\cos(2\\omega) $",
+        "c": "$ 1 + e^(j\\omega) + e^(2j\\omega) $",
+        "d": "$1/5(1 + e^-j\\omega + e^2j\\omega) $"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "Explanation": " For a moving average filter $h[n] = {1/5,1/5,1/5,1/5,1/5}$, $H(\\omega) = e^j2\\omega + e^j\\omega + 1 + e^-j\\omega + e^-2j\\omega, H(\\omega) = 1/5 (1+ 2\\cos\\omega + 2\\cos2\\omega) = 1/5 (1+ 2(\\cos\\omega + \\cos2\\omega)) "
       },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
+      "correctAnswer": "a",
+      "difficulty": "Intermediate"
+    },
+    {
+      "question": "An impulse input signal generates two impulses at the output for an LTI system. If sum of two distinct impulses is given as input to this system, the output will contain",
+      "answers": {
+        "a": "exactly 4 impulses",
+        "b": " 3 or 4 impulses ",
+        "c": " exactly 2 impulses ",
+        "d": "cannot be predicted "
+      },
+      "explanations": {
+        "Explanation": "The output will be sum of output of each impulse. Since there are two impulses in input, they can add up to contain either 3 or 4 impulses. "
+      },
+      "correctAnswer": "b",
+      "difficulty": "Intermediate"
+    },
+    {
+      "question": "When a moving average system of length $M$ is used for noise suppression,",
+      "answers": {
+        "a": "For large M, there is more suppression of noise",
+        "b": "For small M, there is more suppression of noise",
+        "c": "the system does not change the signal at all",
+        "d": "None of these"
+      },
+      "explanations": {
+        "explanations": " Check with the simulations "
+      },
+      "correctAnswer": "a",
+      "difficulty": "Intermediate"
     }
   ]
 }
