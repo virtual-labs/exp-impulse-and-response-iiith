@@ -2,35 +2,57 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "For a system with input $x(t)$, let $y(t)$ denote the output signal. Which of the following system is linear?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "$y(t) = x^2(t)$",
+        "b": "$y(t) = \\sin(x(t))$",
+        "c": "$y(t) = 5 + x(t)$",
+        "d": "$y(t) = x(t^2)$"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "Explanation": " linear system follows the superposition property  "
+      },
+      "correctAnswer": "d",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "For a system with input $x(t)$, let $y(t)$ denote the output signal. Which of the following system is time-invariant?",
+      "answers": {
+        "a": "$y(t) = x^2(t)$",
+        "b": "$y(t) = tx(t)$",
+        "c": "$y(t) = t + x(t)$",
+        "d": "$y(t) = x(t^2)$"
+      },
+      "explanations": {
+        "Explanation": "Apply the definition of time-invariant systems"
       },
       "correctAnswer": "a",
       "difficulty": "beginner"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "For a system with input $x(t)$, let $y(t)$ denote the output signal. Which of the following system is LTI?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "$y(t) = 5 + x(t)$",
+        "b": "$y(t) = t + x(t)$",
+        "c": "$y(t) = x(t - 5)$",
+        "d": "ALL of these"
       },
       "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "explanations": "LTI systems should satisfy both linearity and time-invariance properties"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following statement is false? ",
+      "answers": {
+        "a": "For a linear system, scaling the input proportionately scales the output ",
+        "b": "For an LTI system, impulse response fully describes the system",
+        "c": "For a time-invariant system, a delay in the input does not change the output ",
+        "d": "For an LTI system, given the impulse response, its step response can be always computed"
+      },
+      "explanations": {
+        "explanations": "For time-invariant system, a delayed input must produce a delayed output. "
       },
       "correctAnswer": "c",
       "difficulty": "beginner"
