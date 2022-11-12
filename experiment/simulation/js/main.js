@@ -1162,7 +1162,7 @@ function blocks(){
         height: 300
     };
     Plotly.relayout('figure13', update);
-    Plotly.newPlot('figure14', data1, layout1, config);
+    Plotly.newPlot('figure14', data1, layout2, config);
     var update = {
       width: 400,
       height: 300

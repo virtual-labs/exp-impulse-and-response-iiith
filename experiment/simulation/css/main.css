@@ -1543,7 +1543,7 @@ margin-top: 2%;
   }
   .blk .blk-content .middle2{
   width: 100%;
-  margin-top: 15%;
+  margin-top: 55%;
   margin-left: -40%;
   margin-bottom: -15%;
   }
@@ -1560,8 +1560,8 @@ margin-top: 2%;
   }
   .blk .blk-content .right1{
   width: 100%;
-  margin-top: 25%;
-  margin-left: -25%;
+  margin-top: 65%;
+  margin-left: -55%;
   }
   .blk .blk-content .right2{
   width: 100%;
@@ -1621,7 +1621,7 @@ margin-top: 2%;
     width: 100%;
     margin-top: 40%;
     margin-bottom: -5%;
-    margin-left: -30%;
+    margin-left: -55%;
   }
   .blk1 .blk1-content .right{
   width: 100%;
@@ -1636,7 +1636,7 @@ margin-top: 2%;
   .blk1 .blk1-content .right2{
       width: 100%;
       margin-top: 30%;
-      margin-left: -80%;
+      margin-left: -100%;
   }
   .blk1 .blk1-content .right .input[type=text] {
   width: 100%;
@@ -1696,27 +1696,27 @@ margin-top: 2%;
   }
   .blok .blok-content .one{
   width: 33%;
-  margin-top: 10%;
+  margin-top: 20%;
   margin-left: 15%;
   }
   .blok .blok-content .two{
   width: 33%;
-  margin-top: 10%;
+  margin-top: 20%;
   margin-left: 3%;
   }
   .blok .blok-content .three{
   width: 33%;
-  margin-top: 10%;
-  margin-left: 2%;
+  margin-top: 20%;
+  margin-left: 20%;
   }
   .blok .blok-content .one1{
   width: 33%;
-  margin-left: 7%;
+  margin-left: 3%;
   margin-top: 10%;
   }
   .blok .blok-content .two1{
   width: 33%;
-  margin-left: 5%;
+  margin-left: 2%;
   margin-top: 10%;
   }
   .blok .blok-content .three1{
@@ -1735,7 +1735,7 @@ margin-top: 2%;
   .blok .blok-content .right{
   width: 100%;
   margin-top: -10%;
-  margin-left: 15%;
+  margin-left: -15%;
   }
   .blok .blok-content .right .img{
   height: 400px;
@@ -1746,6 +1746,7 @@ margin-top: 2%;
   .blok .blok-content .right1{
   width: 100%;
   margin-top: 2%;
+  margin-left: -10%;
   }
   
   }
