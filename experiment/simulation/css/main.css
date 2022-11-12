@@ -1510,7 +1510,7 @@ margin-top: 2%;
   color: #000000;
   font-size: 40px;
   font-weight: 500;
-  margin-left: -5%;
+  margin-left: -8%;
   font-family: 'Ubuntu', sans-serif;
   }
   .blk .blk-content{
@@ -1544,7 +1544,7 @@ margin-top: 2%;
   .blk .blk-content .middle2{
   width: 100%;
   margin-top: 15%;
-  margin-left: -20%;
+  margin-left: -40%;
   margin-bottom: -15%;
   }
   .blk .blk-content .middle .img{
@@ -1555,12 +1555,13 @@ margin-top: 2%;
   }
   .blk .blk-content .right{
   width: 100%;
-  margin-top: -35%;
+  margin-top: -55%;
   margin-left: -10%;
   }
   .blk .blk-content .right1{
   width: 100%;
-  margin-top: -75%;
+  margin-top: 25%;
+  margin-left: -25%;
   }
   .blk .blk-content .right2{
   width: 100%;
@@ -1603,7 +1604,7 @@ margin-top: 2%;
   }
   .blk1 .blk1-content .left{
   width: 100%;
-  margin-top: 10%;
+  margin-top: 30%;
   margin-left: 10%;
   }
   .blk1 .blk1-content .left .img{
@@ -1620,6 +1621,7 @@ margin-top: 2%;
     width: 100%;
     margin-top: 40%;
     margin-bottom: -5%;
+    margin-left: -30%;
   }
   .blk1 .blk1-content .right{
   width: 100%;
@@ -1634,7 +1636,7 @@ margin-top: 2%;
   .blk1 .blk1-content .right2{
       width: 100%;
       margin-top: 30%;
-      margin-left: -50%;
+      margin-left: -80%;
   }
   .blk1 .blk1-content .right .input[type=text] {
   width: 100%;
