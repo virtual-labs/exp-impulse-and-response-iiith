@@ -2,12 +2,12 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "<img src=./images/pretest/Q1/Q1.png>",
+      "question": "<img src=./images/pretest/Q1/Q1.png></img>",
       "answers": {
-        "a": "<img src=./images/pretest/Q1/q1_op1.png>",
-        "b": "<img src=./images/pretest/Q1/q1_op2.png>",
-        "c": "<img src=./images/pretest/Q1/q1_op3.png>",
-        "d": "<img src=./images/pretest/Q1/q1_op4.png>"
+        "a": "<img src=./images/pretest/Q1/q1_op1.png></img>",
+        "b": "<img src=./images/pretest/Q1/q1_op2.png></img>",
+        "c": "<img src=./images/pretest/Q1/q1_op3.png></img>",
+        "d": "<img src=./images/pretest/Q1/q1_op4.png></img>"
       },
       "explanations": {
         "explanations": "<img src=./images/pretest/Q1/exp.png>"
