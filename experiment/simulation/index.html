@@ -5,10 +5,18 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="./css/main.css">
 	<script src="https://unpkg.com/mathjs@11.2.1/lib/browser/math.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js" integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
 	<script src="https://cdn.plot.ly/plotly-1.35.2.min.js"></script>
-  	<title>Experiment-2 Simulation</title>
+	<title>Experiment-2 Simulation</title>
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-	  crossorigin="anonymous">
+		crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
 
 </head>
@@ -35,6 +43,19 @@
 		<section class="imp" id="impulse">
 			<div class="max-width">
 				<h2 class="title">Impulse Response of Few Systems</h2>
+				<div class="columns is-centered">
+					<div class="v-collapsible-instruction-container v-instruction-container">
+						<div class="v-collapsible is-size-5">Instructions</div>
+						<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+							Select a system, and visualize the impulse and step response of an LTI system by selecting "<b>Unit Impulse</b>" or "<b>Unit Step</b>". Click on the "<b>Check</b>" button to visualize the plots. Steps to be done are as follows
+							<ol>
+								<li> Select the signal in the drop down provided </li>
+								<li> Select the system in the drop down provided in the center box </li>
+								<li> Click on Check button to visualize the plot in the figure </li>
+							</ol>
+						</div>
+					</div>
+				</div>
 				<div class="imp-content">
 					<div class="column left">
 						<div class="box">
@@ -74,7 +95,20 @@
 	<div id="SYS" class="tabcontent">
 		<section class="sys" id="system">
 			<div class="max-width">
-				<h2 class="t">Working of LTI Systems</h2>
+				<h2 class="title">Working of LTI Systems</h2>
+				<div class="columns is-centered">
+					<div class="v-collapsible-instruction-container v-instruction-container">
+						<div class="v-collapsible is-size-5">Instructions</div>
+						<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+							Select a system, and visualize the impulse and step response of an LTI system and by selecting an input signal. Click on the "<b>Check</b>" button to visualize the plots. Steps to be done are as follows
+							<ol>
+								<li> Select the signal in the drop down provided </li>
+								<li> Select the system in the drop down provided in the center box </li>
+								<li> Click on Check button to visualize the plot in the figure </li>
+							</ol>
+						</div>
+					</div>
+				</div>
 				<div class="sys-content">
 					<div class="column left">
 						<div class="box">
@@ -116,7 +150,23 @@
 	<div id="MVG" class="tabcontent">
 		<section class="mva" id="average">
 			<div class="max-width">
-				<h2 class="t">Moving Average for Noise Removal</h2>
+				<h2 class="title">Moving Average for Noise Removal</h2>
+				<div class="columns is-centered">
+					<div class="v-collapsible-instruction-container v-instruction-container">
+						<div class="v-collapsible is-size-5">Instructions</div>
+						<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+							Select a signal, enter a variance value for the noise to be added to the signal to make it noisy and a window size to implement a Moving Average System. Click on the "<b>Check</b>" button to visualize the plots. Steps to be done are as follows
+							<ol>
+								<li> Select the signal in the drop down provided </li>
+								<li> Enter the noise variance </li>
+								<li> Enter the window size for the Moving Average System </li>
+								<li> Click on Check button to visualize the plot in the figure </li>
+							</ol>
+
+							The input to the filter is given as	\( x[n] = x_{o}[n] + \eta [n] \), here, \( x_{o}[n] \) is the original signal, \(\eta [n]\) is the noise signal, which is a Gaussian distribution ( \( \eta \sim \mathbb{N}(0,\sigma^{2}) \) ) with mean 0, and variance \( \sigma^{2} \), which is to be entered.
+						</div>
+					</div>
+				</div>
 				<div class="mva-content">
 					<div class="column left">
 						<div class="box" style="margin-left: 35%;">
@@ -146,7 +196,7 @@
 				<div class="mva-content">
 					<div class="column left"></div>
 					<div class="column middle1">
-						<button class="button1" id="jsbutton9" role="button" onClick="mavg()">Check</button>
+						<button class="button8" id="jsbutton9" role="button" onClick="mavg()">Check</button>
 					</div>
 					<div class="column right"></div>
 				</div>
@@ -157,7 +207,23 @@
 	<div id="BLK1" class="tabcontent">
 		<section class="blk1" id="blackbox">
 			<div class="max-width">
-				<h2 class="t">Guess the Output</h2>
+				<h2 class="title">Guess the Output</h2>
+				<div class="columns is-centered">
+					<div class="v-collapsible-instruction-container v-instruction-container">
+						<div class="v-collapsible is-size-5">Instructions</div>
+						<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+							This section is to test the understanding, get feedback and run simulations over randomly generated inputs, in the first block, we have an input signal, which is a Unit Impulse and the output of the unknown LTI system is given. In the next block, another input signal is given, to the <b>same</b> LTI system and the output is not provided. 
+							<br>
+							The task here is to identify the scale parameter (by how much will the input be scaled) and the shift parameter (by how much will the input be shifted). Click on the "<b>Check</b>" button to visualize the plot for the values entered, which would be useful for feedback. Steps to be done are as follows
+							<ol>
+								<li> Fill the parameters Frequency, Amplitude and Shift from Origin of the output signal </li>
+							</ol>
+							The plot is obtained and it represents the output of the unknown LTI system when the input to the LTI system is the given signal. On the same plot, the output calculated using the parameters entered is also plotted for a comparison.
+							<br>
+							The observartions tab at the bottom shows comments on whether the given parameters are correct and the output which is constructed from it, is the actual output of the given LTI System.
+						</div>
+					</div>
+				</div>
 				<div class="blk1-content">
 					<div class="column left">
 						<div style = "position:relative; left:-20%; top:-100px;" id='figure4'></div>
@@ -214,7 +280,25 @@
 	<div id="BLK2" class="tabcontent">
 		<section class="blk" id="blackbox2">
 			<div class="max-width">
-				<h2 class="t">Guess the Output</h2>
+				<h2 class="title">Guess the Output</h2>
+				<div class="columns is-centered">
+					<div class="v-collapsible-instruction-container v-instruction-container">
+						<div class="v-collapsible is-size-5">Instructions</div>
+						<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+							This section is to test the understanding, get feedback and run simulations over randomly generated inputs in the first block, we have an input signal, which is a Unit Impulse and the output of the unknown LTI system is given. In the next block, another input signal (two scaled and shifted impulses) is given, to the <b>same</b> LTI system and the output is not provided.
+							<br>
+							It can be easily observed that the output would contain four impulses which are shifted and scaled by various amounts.
+							<br>
+							The task here is to identify the scale parameter (by how much will the input be scaled) and the shift parameter (by how much will the input be shifted) for all 4 impulses which would be obtained at the output. Click on the "<b>Check</b>" button to visualize the plot for the values entered, which would be useful for feedback. Steps to be done are as follows
+							<ol>
+								<li> Fill the parameters Amplitude and Shift from Origin for all 4 impulses in the output signal </li>
+							</ol>
+							The plot is obtained and it represents the output of the unknown LTI system when the input to the LTI system is the given signal. On the same plot, the output calculated using the parameters entered is also plotted for a comparison.
+							<br>
+							The observartions tab at the bottom shows comments on whether the given parameters are correct and the output which is constructed from it, is the actual output of the given LTI System.
+						</div>
+					</div>
+				</div>
 				<div class="blk-content">
 					<div class="column left">
 						<div style = "position:relative; left:-20%; top: -100px;" id='figure8'></div>
@@ -279,7 +363,24 @@
 	<div id="BLKS" class="tabcontent">
 		<section class="blok" id="blocks">
 			<div class="max-width">
-				<h2 class="t">Build Your System</h2>
+				<h2 class="title">Build Your System</h2>
+				<div class="columns is-centered">
+					<div class="v-collapsible-instruction-container v-instruction-container">
+						<div class="v-collapsible is-size-5">Instructions</div>
+						<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+							This section is to test the understanding, get feedback and run simulations over randomly generated inputs in this section, we have an input signal given and the output of an unknown LTI system is also given. Further, we assume the unknown LTI system can be implemented using three LTI systems in cascade. The task here is to identify these three systems such that the final designed system matches with the earlier provided output.
+							<br>
+							The task here is to identify the three LTI systems which when cascaded would convert the given input signal to the given output system. Scalar and Shift blocks require a number by which the signal would be scaled/shifted respectively. This is taken as an input in the text boxes right under the respective systems. Click on the "<b>Check</b>" button to visualize the plot for the values entered, which would be useful for feedback. Steps to be done are as follows
+							<ol>
+								<li> Select the three systems </li>
+								<li> If Scalar/Shift, in the text box below the corresponding LTI box, enter the value to be scaled/shifted by. </li>
+							</ol>
+							The plot is obtained and it represents the output of the unknown LTI system when the input to the LTI system is the given signal. On the same plot, the output calculated using the chosen systems and parameters entered is also plotted for a comparison.
+							<br>
+							The observartions tab at the bottom shows comments on whether the chosen LTI systems and given parameters are correct and the output which is constructed from it, is the actual output of the given LTI System.
+						</div>
+					</div>
+				</div>
 				<div class="blok-content">
 					<div class="column left">
 						<div style = "position:relative; left:-20%; top:-100px;" id='figure12'></div>
@@ -362,6 +463,7 @@
 	</div>
 
   <script src="./js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
 
 </body>
 
