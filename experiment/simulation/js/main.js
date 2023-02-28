@@ -145,8 +145,8 @@ function impStp(){
       
     Plotly.newPlot('figure1', data, layout, config);
       var update = {
-        width: 400,
-        height: 300
+        width: 450,
+        height: 350
     };
     Plotly.relayout('figure1', update);
 }
@@ -340,8 +340,8 @@ function syst(){
       
     Plotly.newPlot('figure3', data, layout, config);
       var update = {
-        width: 400,
-        height: 300
+        width: 450,
+        height: 350
     };
     Plotly.relayout('figure3', update);
 }
@@ -507,8 +507,8 @@ function mavg(){
       
     Plotly.newPlot('figure11', data, layout, config);
       var update = {
-        width: 400,
-        height: 300
+        width: 450,
+        height: 350
     };
     Plotly.relayout('figure11', update);
 }
@@ -621,8 +621,8 @@ function black(){
     Plotly.relayout('figure4', update);
     Plotly.newPlot('figure6', data2, layout2, config);
       var update = {
-        width: 400,
-        height: 300
+        width: 450,
+        height: 350
     };
     Plotly.relayout('figure6', update);
     
@@ -634,8 +634,8 @@ function black(){
     Plotly.relayout('figure5', update);
     Plotly.newPlot('figure7', data4, layout2, config);
       var update = {
-        width: 400,
-        height: 300
+        width: 450,
+        height: 350
     };
     Plotly.relayout('figure7', update);
 }
@@ -716,8 +716,8 @@ function blackCheck(){
 
     Plotly.newPlot('figure7', data1, layout2, config);
       var update = {
-        width: 400,
-        height: 300
+        width: 450,
+        height: 350
     };
     Plotly.relayout('figure7', update);
 }
@@ -853,8 +853,8 @@ function black1(){
     Plotly.relayout('figure9', update);
     Plotly.newPlot('figure10', data3, layout1, config);
       var update = {
-        width: 400,
-        height: 300
+        width: 450,
+        height: 350
     };
     Plotly.relayout('figure10', update);
 }
@@ -1152,20 +1152,20 @@ function blocks(){
 
     Plotly.newPlot('figure12', data1, layout1, config);
       var update = {
-        width: 400,
-        height: 300
+        width: 450,
+        height: 350
     };
     Plotly.relayout('figure12', update);
     Plotly.newPlot('figure13', data2, layout2, config);
       var update = {
-        width: 400,
-        height: 300
+        width: 450,
+        height: 350
     };
     Plotly.relayout('figure13', update);
     Plotly.newPlot('figure14', data1, layout2, config);
     var update = {
-      width: 400,
-      height: 300
+      width: 450,
+      height: 350
   };
   Plotly.relayout('figure14', update);
 }
@@ -1405,8 +1405,8 @@ function blockCheck(){
         };
         Plotly.newPlot('figure14', data1, layout1, config);
     var update = {
-      width: 400,
-      height: 300
+      width: 450,
+      height: 350
   };
   Plotly.relayout('figure14', update);
         return;
@@ -1464,8 +1464,8 @@ function blockCheck(){
             };
             Plotly.newPlot('figure14', data1, layout1, config);
     var update = {
-      width: 400,
-      height: 300
+      width: 450,
+      height: 350
   };
   Plotly.relayout('figure14', update);
             return;
@@ -1539,8 +1539,8 @@ function blockCheck(){
 
     Plotly.newPlot('figure14', data1, layout1, config);
     var update = {
-      width: 400,
-      height: 300
+      width: 450,
+      height: 350
     };
     Plotly.relayout('figure14', update);
 }
