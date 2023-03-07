@@ -1847,7 +1847,7 @@ section{
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
-  transition: 0.3s;
+  transition: 0.1s;
   font-size: 17px;
 }
 
