@@ -10,6 +10,32 @@ function openPart(evt, name) {
     }
     document.getElementById(name).style.display = "block";
     evt.currentTarget.className += " active";
+
+    if(!name.localeCompare('IR'))
+    {
+        impStp();
+    }
+    else if(!name.localeCompare('SYS'))
+    {
+        syst();
+    }
+    else if(!name.localeCompare('MVG'))
+    {
+        mavg();
+        renderMathInElement(document.body);
+    }
+    else if(!name.localeCompare('BLK1'))
+    {
+        black();
+    }
+    else if(!name.localeCompare('BLK2'))
+    {
+        black1();
+    }
+    else
+    {
+        blocks();
+    }
 }
 
 var k;
@@ -20,6 +46,7 @@ var delayChoice;
 var boxChoice;
 var yValues;
 var inValues;
+var yFinal;
 
 // ------------------------------------------ LTI Impulse Response ----------------------------------------------------------
 
@@ -332,7 +359,7 @@ function syst(){
         x: xValues,
         y: sigValues,
         type: 'scatter',
-        name: 'original',
+        name: 'input',
         mode: 'line'
     };
       
@@ -466,7 +493,7 @@ function mavg(){
 
     for (var i=0; i<=80; i++)
     {
-        sigValues[i] = sigValues[i]+std*Math.random();
+        sigValues[i] = sigValues[i]+std*(Math.random()-0.5);
         yValues.push(sigValues[i]);
     }
 
@@ -511,7 +538,7 @@ function mavg(){
         x: xValues,
         y: sigValues,
         type: 'scatter',
-        name: 'original',
+        name: 'noisy',
         mode: 'line'
     };
       
@@ -560,11 +587,11 @@ function black(){
     var sigValues = [];
     var yValues = [];
 
-    k = Math.floor(Math.random() * 41)-20;
-    p = Math.floor(Math.random() * 41)-20;
+    k = Math.floor(Math.random() * 161)-80;
+    p = Math.floor(Math.random() * 161)-80;
 
-    var xValues = makeArr(-20,20,41);
-    for (var i=0; i<=40; i++)
+    var xValues = makeArr(-80,80,161);
+    for (var i=0; i<=160; i++)
     {
         if(xValues[i]==p)
         {
@@ -584,9 +611,9 @@ function black(){
         }
     }
 
-    for (var i=0; i<=40; i++)
+    for (var i=0; i<=160; i++)
     {
-        sigValues1.push(Math.sin(0.5*(xValues[i])));
+        sigValues1.push(Math.sin(0.125*(2*Math.PI*xValues[i])));
         sigValues2.push(0);
     }
 
@@ -602,7 +629,7 @@ function black(){
         x: xValues,
         y: yValues,
         type: 'scatter',
-        name: 'original',
+        name: 'Desired Output',
         mode: 'markers'
     };
 
@@ -736,7 +763,7 @@ function blackCheck(){
     var sh = document.getElementById("shift1").value;
     sh = parseFloat(sh);
 
-    if(freq!=0.5 || am!=k || sh!=p)
+    if(freq!=8 || am!=k || sh!=p)
     {
         var element = document.getElementById("result1")
         element.style.color = "#FF0000";
@@ -755,8 +782,8 @@ function blackCheck(){
 
     for (var i=0; i<=40; i++)
     {
-        yValues.push(am*Math.sin(freq*(xValues[i])-sh));
-        yValues1.push(k*Math.sin(0.5*(xValues[i])-p));
+        yValues.push(am*Math.sin((1/freq)*2*Math.PI*(xValues[i])-sh));
+        yValues1.push(k*Math.sin(0.125*2*Math.PI*(xValues[i])-p));
     }
 
     var trace1 = {
@@ -888,14 +915,14 @@ function black1(){
         x: xValues,
         y: yValues,
         type: 'scatter',
-        name: 'original',
+        name: 'Desired Output',
         mode: 'markers'
     };
 
     var trace3 = {
         x: xValues,
         y: sigValues1,
-        name: 'impulse 1',
+        name: '1',
         type: 'scatter',
         mode: 'markers'
     };
@@ -903,7 +930,7 @@ function black1(){
     var trace4 = {
         x: xValues,
         y: sigValues2,
-        name: 'impulse 2',
+        name: '2',
         type: 'scatter',
         mode: 'markers'
     };
@@ -1095,25 +1122,27 @@ function defFunction(choice, signal){
     {
         // difference
         out.push(signal[i]);
-        for (var i=1; i<=80; i++)
+        for (var i=1; i<=120; i++)
         {
             out.push(signal[i]-signal[i-1]);
         }
     }
     else if(choice==1)
     {
+        // accumulator
         out.push(signal[0]);
-        for (var i=1; i<=80; i++)
+        for (var i=1; i<=120; i++)
         {
             out.push(signal[i]+out[i-1]);
         }
     }
     else if(choice==2)
     {
+        // ma
         var wind = 5;
         var start = (wind-1)/2;
-        var last = 81-((wind-1)/2);
-        for(var i=0; i<81; i++)
+        var last = 120-((wind-1)/2);
+        for(var i=0; i<120; i++)
         {
             out.push(signal[i]);
         }
@@ -1139,26 +1168,28 @@ function blocks(){
     yValues = [];
     inValues = [];
 
-    sigChoice = Math.floor(Math.random()*2);
-    scaleChoice = Math.floor(Math.random()*41)-20;
-    delayChoice = Math.floor(Math.random()*41)-20;
-    boxChoice = Math.floor(Math.random()*3);
+    sigChoice = Math.floor(Math.random()*2); // 0 is for pulse and 1 is for sine
+    scaleChoice = Math.floor(Math.random()*41)-20; // scale for signal, range is -20 to 20
+    while(scaleChoice==0)
+    {
+        scaleChoice = Math.floor(Math.random()*41)-20; // scale for signal, range is -20 to 20
+    }
+    delayChoice = Math.floor(Math.random()*41)-20; // delay for signal, range is -20 to 20
+    boxChoice = Math.floor(Math.random()*3); // choice of system to use, only 1 is used each time
 
     console.log(scaleChoice,delayChoice,boxChoice);
 
-    var xValues = makeArr(-40,40,81);
-    var xBig = makeArr(-60,60,121);
-    var xValues1 = makeArr(-40+delayChoice,40+delayChoice,81);
+    var xValues = makeArr(-60,60,121);
 
     if(sigChoice==0)
     {
-        for(var i=0; i<=80; i++)
+        for(var i=0; i<=121; i++)
         {
-            if(i<27)
+            if(i<40)
             {
                 inValues.push(0);
             }
-            else if(i<54)
+            else if(i<80)
             {
                 inValues.push(1);
             }
@@ -1167,75 +1198,33 @@ function blocks(){
                 inValues.push(0);
             }
         }
-            for(var i=0; i<=80; i++)
+        
+        for(var i=0; i<=121; i++)
+        {
+            if(i<40+delayChoice)
             {
-                if(i<27+delayChoice)
-                {
-                    yValues.push(0);
-                }
-                else if(i<54+delayChoice)
-                {
-                    yValues.push(scaleChoice);
-                }
-                else
-                {
-                    yValues.push(0);
-                }
+                yValues.push(0);
             }
+            else if(i<80+delayChoice)
+            {
+                yValues.push(scaleChoice);
+            }
+            else
+            {
+                yValues.push(0);
+            }
+        }
     }
     else
     {
-        for(var i=0; i<=80; i++)
+        for(var i=0; i<=121; i++)
         {
-            inValues.push(Math.sin(0.5*Math.PI*xValues[i]));
+            inValues.push(Math.sin(0.125*Math.PI*xValues[i]));
         }
-        if(delayChoice<0)
+
+        for(var i=-delayChoice; i<=121; i++)
         {
-            for(var i=-delayChoice; i<=80; i++)
-            {
-                yValues.push(inValues[i]*scaleChoice);
-            }
-            var index1 = 0;
-            var index2 = 0;
-            for(var i=0; i<121; i++)
-            {
-                if(xBig[i]==40)
-                {
-                    index1 = i;
-                }
-                if(xBig[i]==40-delayChoice)
-                {
-                    index2 = i;
-                }
-            }
-            for(var i=index1+1; i<=index2; i++)
-            {
-                yValues.push(scaleChoice*Math.sin(0.5*Math.PI*xBig[i]));
-            }
-        }
-        else
-        {
-            var index1 = 0;
-            var index2 = 0;
-            for(var i=0; i<121; i++)
-            {
-                if(xBig[i]==-40)
-                {
-                    index1 = i;
-                }
-                if(xBig[i]==-40-delayChoice)
-                {
-                    index2 = i;
-                }
-            }
-            for(var i=index2; i<index1; i++)
-            {
-                yValues.push(scaleChoice*Math.sin(0.5*Math.PI*xBig[i]));
-            }
-            for(var i=0; i<80-delayChoice; i++)
-            {
-                yValues.push(inValues[i]*scaleChoice);
-            }
+            yValues.push(scaleChoice*Math.sin(0.125*Math.PI*(xValues[i]-delayChoice)));
         }
     }
 
@@ -1245,7 +1234,7 @@ function blocks(){
         x: xValues,
         y: inValues,
         type: 'scatter',
-        name: 'original',
+        name: 'Desired Output',
         mode: 'lines'
     };
     var data1 = [trace1];
@@ -1263,10 +1252,10 @@ function blocks(){
     };
 
     var trace2 = {
-        x: xValues1,
+        x: xValues,
         y: yFinal,
         type: 'scatter',
-        name: 'original',
+        name: 'Desired Output',
         mode: 'lines'
     };
     var data2 = [trace2];
@@ -1340,8 +1329,8 @@ function blocks(){
 /* ---------------------------------- Blocks Checking ----------------------------------- */
 
 function blockCheck(){
-    var yValues = [];
-    var inValues = [];
+    
+    var actual = yFinal;
 
     var b1 = document.getElementById("sig-namesBLK1").value;
     b1 = parseInt(b1);
@@ -1356,65 +1345,35 @@ function blockCheck(){
     var v3 = document.getElementById("block3").value;
     v3 = parseInt(v3);
 
-    var spl = [];
-    if(b1>2 && b1!=6)
-    {
-        spl.push(1);
-    }
-    else
-    {
-        spl.push(0);
-    }
-    if(b2>2 && b2!=6)
-    {
-        spl.push(1);
-    }
-    else
-    {
-        spl.push(0);
-    }
-    if(b3>2 && b3!=6)
-    {
-        spl.push(1);
-    }
-    else
-    {
-        spl.push(0);
-    }
-
-    var count = 0;
-    for(var i=0; i<3; i++)
-    {
-        if(spl[i])
-        {
-            count++;
-        }
-    }
+    var yHere = [];
 
     var scaleHere = 1;
     var delayHere = 0;
 
+    // calculate scale
     if(b1==1)
     {
         scaleHere = scaleHere*v1;
-    }
-    else if(b1==2)
-    {
-        delayHere = delayHere+v1;
     }
     if(b2==1)
     {
         scaleHere = scaleHere*v2;
     }
-    else if(b2==2)
-    {
-        delayHere = delayHere+v2;
-    }
     if(b3==1)
     {
         scaleHere = scaleHere*v3;
     }
-    else if(b3==2)
+
+    // calculate delay
+    if(b1==2)
+    {
+        delayHere = delayHere+v1;
+    }
+    if(b2==2)
+    {
+        delayHere = delayHere+v2;
+    }
+    if(b3==2)
     {
         delayHere = delayHere+v3;
     }
@@ -1428,202 +1387,69 @@ function blockCheck(){
         return;
     }
 
-    var xValues = makeArr(-40,40,81);
-    var xBig = makeArr(-60,60,121);
-    var xValues1 = makeArr(-40+delayHere,40+delayHere,81);
-    var inValuesHere = [];
-    var yValuesHere = [];
+    var xValues = makeArr(-60,60,121);
 
+    // Shift and scale
     if(sigChoice==0)
-    {
-        for(var i=0; i<=80; i++)
+    {      
+        for(var i=0; i<=121; i++)
         {
-            if(i<27)
+            if(i<40+delayHere)
             {
-                inValuesHere.push(0);
+                yHere.push(0);
             }
-            else if(i<54)
+            else if(i<80+delayHere)
             {
-                inValuesHere.push(1);
+                yHere.push(scaleHere);
             }
             else
             {
-                inValuesHere.push(0);
+                yHere.push(0);
             }
         }
-            for(var i=0; i<=80; i++)
-            {
-                if(i<27+delayHere)
-                {
-                    yValuesHere.push(0);
-                }
-                else if(i<54+delayHere)
-                {
-                    yValuesHere.push(scaleHere);
-                }
-                else
-                {
-                    yValuesHere.push(0);
-                }
-            }
     }
     else
     {
-        for(var i=0; i<=80; i++)
+        for(var i=-delayChoice; i<=121; i++)
         {
-            inValuesHere.push(Math.sin(0.5*Math.PI*xValues[i]));
-        }
-        if(delayHere<0)
-        {
-            for(var i=-delayHere; i<=80; i++)
-            {
-                yValuesHere.push(inValuesHere[i]*scaleHere);
-            }
-            var index1 = 0;
-            var index2 = 0;
-            for(var i=0; i<121; i++)
-            {
-                if(xBig[i]==40)
-                {
-                    index1 = i;
-                }
-                if(xBig[i]==40-delayHere)
-                {
-                    index2 = i;
-                }
-            }
-            for(var i=index1+1; i<=index2; i++)
-            {
-                yValuesHere.push(scaleHere*Math.sin(0.5*Math.PI*xBig[i]));
-            }
-        }
-        else
-        {
-            var index1 = 0;
-            var index2 = 0;
-            for(var i=0; i<121; i++)
-            {
-                if(xBig[i]==-40)
-                {
-                    index1 = i;
-                }
-                if(xBig[i]==-40-delayHere)
-                {
-                    index2 = i;
-                }
-            }
-            for(var i=index2; i<index1; i++)
-            {
-                yValuesHere.push(scaleHere*Math.sin(0.5*Math.PI*xBig[i]));
-            }
-            for(var i=0; i<80-delayHere; i++)
-            {
-                yValuesHere.push(inValues[i]*scaleHere);
-            }
+            yHere.push(scaleHere*Math.sin(0.125*Math.PI*(xValues[i]-delayHere)));
         }
     }
 
-    if(count!=1)
+    // Apply systems
+    if(b1>2 && b1!=6)
     {
-        var element = document.getElementById("resultBLK")
-        element.style.color = "#FF0000";
-        element.style.fontWeight = "bold";
-        element.innerHTML = 'Wrong Answer! Check Plot for your signal!';
-        yFinalHere = yValuesHere;
-        if(spl[0])
-        {
-            yFinalHere = defFunction(b1-3,yFinalHere);
-        }
-        if(spl[1])
-        {
-            yFinalHere = defFunction(b2-3,yFinalHere);
-        }
-        if(spl[2])
-        {
-            yFinalHere = defFunction(b3-3,yFinalHere);
-        }
-
-        var trace1 = {
-            x: xBig,
-            y: yFinal,
-            type: 'scatter',
-            name: 'original',
-            mode: 'lines'
-        };
-        var trace2 = {
-            x: xBig,
-            y: yFinalHere,
-            type: 'scatter',
-            name: 'Your Output',
-            mode: 'lines'
-        };
-        var data1 = [trace1,trace2];
-    
-        var config = {responsive: true}
-    
-        var layout1 = {
-            title: 'Check It',
-            xaxis: {
-                title: 'Time [n]'
-            },
-            yaxis: {
-                title: 'Amplitude (A)'
-            }
-        };
-        Plotly.newPlot('figure14', data1, layout1, config);
-    
-        if(screen.width < 769)
-        {
-            var update = {
-                width: 0.9*screen.width,
-                height: 400
-            };
-        }
-        else
-        {
-            var update = {
-                width: 500,
-                height: 400
-            };
-        }
-
-        Plotly.relayout('figure14', update);
-        return;
+        yHere = defFunction(b1-3,yHere);
     }
-    else
+    if(b2>2 && b2!=6)
     {
-        var index = 0;
-        for(var i=0; i<=2; i++)
-        {
-            if(spl[i])
-            {
-                index = i;
-                break;
-            }
-        }
-        if(i==0)
-            yFinalHere = defFunction(b1-3,yValuesHere);
-        else if(i==1)
-            yFinalHere = defFunction(b2-3,yValuesHere);
-        else
-            yFinalHere = defFunction(b3-3,yValuesHere);
+        yHere = defFunction(b2-3,yHere);
+    }
+    if(b3>2 && b3!=6)
+    {
+        yHere = defFunction(b3-3,yHere);
+    }
 
-        if(yFinalHere.length!=yFinal.length)
+    // check if the signals are same or not
+    for(var i=0; i<121; i++)
+    {
+        var value = Math.abs(yHere[i]-actual[i]);
+        if(value>1e-3)
         {
             var element = document.getElementById("resultBLK")
             element.style.color = "#FF0000";
             element.style.fontWeight = "bold";
             element.innerHTML = 'Wrong Answer! Check Plot for your signal!';
             var trace1 = {
-                x: xBig,
+                x: xValues,
                 y: yFinal,
                 type: 'scatter',
-                name: 'original',
+                name: 'Desired Output',
                 mode: 'lines'
             };
             var trace2 = {
-                x: xBig,
-                y: yFinalHere,
+                x: xValues,
+                y: yHere,
                 type: 'scatter',
                 name: 'Your Output',
                 mode: 'lines'
@@ -1662,51 +1488,22 @@ function blockCheck(){
             return;
         }
     }
-    var flag1 = 0;
-    for(var i=0; i<yFinal.length; i++)
-    {
-        if(yFinal[i]!=yFinalHere[i] && i>0 && i!=delayHere)
-        {
-            flag1 = 1;
-            break;
-        }
-    }
 
-    if(flag1)
-    {
-        var element = document.getElementById("resultBLK")
-            element.style.color = "#FF0000";
-            element.style.fontWeight = "bold";
-            element.innerHTML = 'Wrong Answer! Check Plot for your signal!';
-    }
-    else
-    {
-        if(delayHere!=delayChoice)
-        {
-            var element = document.getElementById("resultBLK")
-            element.style.color = "#FF0000";
-            element.style.fontWeight = "bold";
-            element.innerHTML = 'Wrong Answer! Check Plot for your signal!';
-        }
-        else
-        {
-            var element = document.getElementById("resultBLK")
-            element.style.color = "#006400";
-            element.style.fontWeight = "bold";
-            element.innerHTML = 'Right Answer! Upto computational precision';
-        }
-    }
+    var element = document.getElementById("resultBLK")
+    element.style.color = "#006400";
+    element.style.fontWeight = "bold";
+    element.innerHTML = 'Right Answer! Upto computational precision';
 
     var trace1 = {
-        x: xValues1,
+        x: xValues,
         y: yFinal,
         type: 'scatter',
-        name: 'original',
+        name: 'Desired Output',
         mode: 'lines',
     };
     var trace2 = {
-        x: xValues1,
-        y: yFinalHere,
+        x: xValues,
+        y: yHere,
         type: 'scatter',
         name: 'Your Output',
         mode: 'lines',
@@ -1763,12 +1560,6 @@ function makeArr(startValue, stopValue, cardinality) {
 
 function startup()
 {
-    impStp();
-    syst();
-    mavg();
-    black();
-    black1();
-    blocks();
     document.getElementById("default").click();
 }
 
