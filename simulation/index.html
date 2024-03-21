@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+	<title>Experiment-2 Simulation</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/css/style.min.css">
+
+</head>
+
+<body>
+
+	<div class="columns is-centered">
+        <div class="column is-one-quarter v-instruction-title">
+            Tasks
+        </div>
+        <div class="column">
+            <div class="tab">
+                <button class="tablinks" onclick="openPart(event, 'IR')", id="default">Impulse and Step Response</button>
+                <button class="tablinks" onclick="openPart(event, 'SYS')">LTI Systems</button>
+				<button class="tablinks" onclick="openPart(event, 'MVG')">LTI System Application</button>
+                <button class="tablinks" onclick="openPart(event, 'BLK1')">Quiz 1</button>
+                <button class="tablinks" onclick="openPart(event, 'BLK2')">Quiz 2</button>
+				<button class="tablinks" onclick="openPart(event, 'BLKS')">Blocks Quiz</button>
+            </div>
+        </div>
+    </div>
+
+	<div id="IR" class="tabcontent">
+		<section class="imp" id="impulse">
+			<div class="max-width">
+				<h2 class="title">Impulse and Step Response of Few Systems</h2>
+				<div class="columns is-centered">
+					<div class="v-collapsible-instruction-container v-instruction-container">
+						<div class="v-collapsible is-size-5">Instructions</div>
+						<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+							<h3> <b> To visualize the impulse and step response of an LTI system, follow these steps: </b> </h3>
+							<br> 
+							<h3> 
+								<ol> 
+									<li> Choose a system from the dropdown provided in the center box </li>
+									<li> Select "Unit Impulse" or "Unit Step" from the dropdown menu to visualize the corresponding response </li>
+									<li> Click on the "Check" button to generate the plot in the figure </li>
+								</ol>
+							</h3>
+						</div>
+					</div>
+				</div>
+
+				<div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+			style="margin-top:-1.5%">
+			<div class="column is-3-desktop is-5-tablet is-12-mobile">
+				<div class="box-question">
+					<div class="box">
+						<select id="sig-names">
+						  <option value="1">Unit Impulse</option>
+						  <option value="2">Unit Step</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="column is-3-desktop is-5-tablet is-12-mobile">
+				<div class="box-question">
+					<div class="box1">
+						<select id="imp-names">
+						  <option value="1">Scaling (10)</option>
+						  <option value="2">Shifting (10)</option>
+						  <option value="3">Differentiator</option>
+						  <option value="4">Accumulator</option>
+						</select>
+					</div>
+					<button class="buttonTotal" id="jsbutton" onClick="impStp()">Check</button>
+				</div>
+			</div>
+
+			<div class="column is-3-desktop is-10-tablet is-5-mobile">
+				<div class="box-question">
+					<div class="v-datalist-title">Observations</div>
+					<div id="observations1">
+						<div id='figure1'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		</section>
+	</div>
+
+	<div id="SYS" class="tabcontent">
+		<section class="imp" id="system">
+			<div class="max-width">
+				<h2 class="title">Working of LTI Systems</h2>
+				<div class="columns is-centered">
+					<div class="v-collapsible-instruction-container v-instruction-container">
+						<div class="v-collapsible is-size-5">Instructions</div>
+						<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+							<h3> <b> To visualize the impulse and step response of an LTI system using a specific input signal, follow these steps: </b> </h3>
+							<br> 
+							<h3> 
+								<ol> 
+									<li> Choose an input signal from the dropdown provided </li>
+									<li> Select a system from the dropdown provided in the center box </li>
+									<li> Click on the "Check" button to generate the plots in the figure </li>
+								</ol>
+							</h3>
+						</div>
+					</div>
+				</div>
+
+				<div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+			style="margin-top:-1.5%">
+			<div class="column is-3-desktop is-5-tablet is-12-mobile">
+				<div class="box-question">
+					<div class="box">
+						<select id="imp-names2">
+							<option value="1">Sine</option>
+							<option value="2">Cosine</option>
+							<option value="3">Ramp</option>
+							<option value="4">Pulse</option>
+							<option value="5">Haar</option>
+						</select>
+					</div>
+				</div>
+			</div>
+
+			<div class="column is-3-desktop is-5-tablet is-12-mobile">
+				<div class="box-question">
+					<div class="box1">
+						<select id="sig-names2">
+						  <option value="1">Scaling  (10)</option>
+						  <option value="2">Shifting (10)</option>
+						  <option value="3">Differentiator</option>
+						  <option value="4">Accumulator</option>
+						</select>
+					</div>
+					<button class="buttonTotal" id="jsbutton2" onClick="syst()">Check</button>
+				</div>
+			</div>
+
+			<div class="column is-3-desktop is-10-tablet is-5-mobile">
+				<div class="box-question">
+					<div class="v-datalist-title">Observations</div>
+					<div id="observations2">
+						<div id='figure3'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		</section>
+	</div>
+
+	<div id="MVG" class="tabcontent">
+		<section class="imp" id="average">
+			<div class="max-width">
+				<h2 class="title">Moving Average for Noise Removal</h2>
+				<div class="columns is-centered">
+					<div class="v-collapsible-instruction-container v-instruction-container" style="width: 100%;">
+						<div class="v-collapsible is-size-5">Instructions</div>
+						<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+							<h3> <b> To generate a noisy signal and apply a Moving Average System with a specific window size, follow these steps: </b> </h3>
+							<br>
+							<h3>
+								<ol>
+									<li> Choose a signal from the dropdown provided </li>
+									<li> Enter the standard deviation value for the noise to be added to the signal </li>
+									<li> Enter the window size for the Moving Average System </li>
+									<li> Click on the "Check" button to generate the plot in the figure </li>
+								</ol>
+							</h3>
+							<br>
+							<h3> The input to the filter is given as	\( x[n] = x_{o}[n] + \eta [n] \), here, \( x_{o}[n] \) is the original signal, \(\eta [n]\) is the noise signal, which is a Gaussian distribution ( \( \eta \sim \mathbb{N}(0,\sigma^{2}) \) ) with mean 0, and variance \( \sigma^{2} \), which is to be entered. </h3>
+						</div>
+					</div>
+				</div>
+
+				<div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+			style="margin-top:-1.5%">
+			<div class="column is-3-desktop is-5-tablet is-12-mobile">
+				<div class="box-question">
+					<div class="boxx">
+						<select id="imp-names3">
+							<option value="1">Sine</option>
+							<option value="2">Cosine</option>
+							<option value="3">Ramp</option>
+							<option value="4">Pulse</option>
+							<option value="5">Haar</option>
+						</select>
+					</div>
+					<div class="fill"> Noise Std. Dev.: &emsp; <input type=number id="noise" value=1 step=0.5> </div>
+					<div class="fill"> Window Size: &emsp; <input type=number id="filter" value=5 step=0.5> </div>
+				</div>
+			</div>
+
+			<div class="column is-2-desktop is-5-tablet is-12-mobile">
+				<div class="box-question">
+					<div class="box1">
+						<select id="sig-names6">
+						  <option value="1">M A</option>
+						</select>
+					</div>
+					<button class="buttonTotal" id="jsbutton9" onClick="mavg()">Check</button>
+				</div>
+			</div>
+
+			<div class="column is-3-desktop is-10-tablet is-5-mobile">
+				<div class="box-question">
+					<div class="v-datalist-title">Observations</div>
+					<div id="observations3">
+						<div id='figure11'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		</section>
+	</div>
+
+	<div id="BLK1" class="tabcontent">
+		<section class="imp" id="blackbox">
+			<div class="max-width">
+				<h2 class="title">Guess the Output</h2>
+				<div class="columns is-centered">
+					<div class="v-collapsible-instruction-container v-instruction-container">
+						<div class="v-collapsible is-size-5">Instructions</div>
+						<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+							<h3> In this section, you can test your understanding and run simulations on randomly generated inputs. The first block shows an input signal, which is a Unit Impulse, and the output of an unknown LTI system is given. In the next block, a different input signal is provided to the same LTI system, but the output is not given.Your task is to identify the scale parameter (the factor by which the input will be scaled) and the shift parameter (the amount by which the input will be shifted). After entering the values. </h3>
+							<br>
+							<h3> <b> Follow these steps to proceed: </b> </h3>
+							<br>
+							<h3>
+								<ol>
+									<li> Fill in the parameters for Frequency, Amplitude, and Shift from Origin of the output signal </li>
+								</ol>
+							</h3>
+							<br>
+							<h3> The plot will display the output of the unknown LTI system when the input is the given signal. Additionally, the output calculated using the entered parameters will also be plotted for comparison. </h3>
+							<br>
+							<h3> <b> The Observations tab at the bottom of the page will display comments on whether the entered parameters are correct, and whether the output constructed using these parameters is the actual output of the given LTI System. </b> </h3>
+						</div>
+					</div>
+				</div>
+
+				<div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+			style="margin-top:-1.5%">
+			<div class="column is-4-desktop is-5-tablet is-12-mobile">
+				<div class="box-question">
+					<div style = "position:relative; margin-left: -10%;" id='figure4'></div>
+				</div>
+			</div>
+
+			<div class="column is-3-desktop is-5-tablet is-12-mobile">
+				<div class="box-question">
+					<div class="box2">
+						<select id="sig-names3">
+							<option value="1">h[n]</option>
+						  </select>
+					</div>
+				</div>
+			</div>
+
+			<div class="column is-3-desktop is-10-tablet is-5-mobile">
+				<div class="box-question">
+					<div class="v-datalist-title">Output</div>
+					<div id="observations4">
+						<div style = "position:relative; left:10%; top:30px;" id='figure6'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+			style="margin-top:-1.5%">
+			<div class="column is-4-desktop is-5-tablet is-12-mobile">
+				<div class="box-question">
+					<div style = "position:relative; margin-left: -10%;" id='figure5'></div>
+				</div>
+			</div>
+
+			<div class="column is-3-desktop is-5-tablet is-12-mobile">
+				<div class="box-question">
+					<div class="box2">
+						<select id="sig-names4">
+							<option value="1">h[n]</option>
+						  </select>
+					</div>
+					<h2 style="margin-top:0%; margin-bottom: 10%;"><b>Fill the Parameters</b></h2>
+					<div class="fill"> Frequency: &emsp; <input type=number id="fre1" value=1 step=0.5> </div>
+					<div class="fill"> Amplitude: &emsp; <input type=number id="amp1" value=1 step=0.5> </div>
+					<div class="fill"> Shift from Origin: &emsp; <input type=number id="shift1" value=1 step=0.5> </div>
+				</div>
+			</div>
+
+			<div class="column is-3-desktop is-10-tablet is-10-mobile">
+				<div class="box-question">
+					<div class="v-datalist-title">Observation</div>
+					<div id="observations8">
+						<div style = "position:relative" id='figure7'></div>
+						<button class="buttonTotal" id="jsbutton3" onClick="blackCheck()">Check</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="v-datalist-container components-list" style="margin-bottom: 20%;">
+			<div class="v-datalist-title">Observations</div>
+			<div class="v-datalist-row">
+				<div id="result1"></div>
+			</div>
+		</div>
+
+		</section>
+	</div>
+
+	<div id="BLK2" class="tabcontent">
+		<section class="imp" id="blackbox2">
+			<div class="max-width">
+				<h2 class="title">Guess the Output</h2>
+				<div class="columns is-centered">
+					<div class="v-collapsible-instruction-container v-instruction-container">
+						<div class="v-collapsible is-size-5">Instructions</div>
+						<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+							<h3> This section aims to test the understanding, get feedback, and run simulations over randomly generated inputs. In the first block, an input signal, which is a Unit Impulse, and the output of the unknown LTI system is given. In the next block, another input signal (two scaled and shifted impulses) is given to the same LTI system, and the output is not provided. The output is expected to contain four impulses, which are shifted and scaled by various amounts.The task here is to identify the scale parameter (by how much will the input be scaled) and the shift parameter (by how much will the input be shifted) for all four impulses obtained at the output. </h3>
+							<br>
+							<h3> <b> Follow these steps to proceed: </b> </h3>
+							<br>
+							<h3>
+								<ol>
+									<li> Fill the parameters, i.e., amplitude and shift from origin for all four impulses in the output signal </li>
+									<li> Click on the "Check" button to visualize the plot in the figure </li>
+								</ol>
+							</h3>
+							<br>
+							<h3> The plot represents the output of the unknown LTI system when the input to the LTI system is the given signal. On the same plot, the output calculated using the parameters entered is also plotted for a comparison. </h3>
+							<br>
+							<h3> <b> The observations tab at the bottom shows comments on whether the given parameters are correct and the output constructed from it is the actual output of the given LTI System. </b> </h3>
+						</div>
+					</div>
+				</div>
+
+				<div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+			style="margin-top:-1.5%">
+			<div class="column is-5-desktop is-10-tablet is-12-mobile">
+				<div class="box-question">
+					<div style = "position:relative; margin-left: -10%;" id='figure8'></div>
+				</div>
+			</div>
+
+			<div class="column is-3-desktop is-5-tablet is-12-mobile">
+				<div class="box-question">
+					<div class="box2">
+						<select id="sig-names4">
+							<option value="1">h[n]</option>
+						  </select>
+					</div>
+				</div>
+			</div>
+
+			<div class="column is-3-desktop is-10-tablet is-5-mobile">
+				<div class="box-question">
+					<div class="v-datalist-title">Output</div>
+					<div id="observations5">
+						<div" id='figure9'></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+			style="margin-top:-1.5%">
+			<div class="column is-5-desktop is-10-tablet is-12-mobile">
+				<div class="box-question">
+					<div style = "position:relative; margin-left: -10%;" id='figure10'></div>
+				</div>
+			</div>
+
+			<div class="column is-4-desktop is-5-tablet is-12-mobile">
+				<div class="box-question">
+					<div class="box3">
+						<select id="sig-names5">
+							<option value="1">h[n]</option>
+						  </select>
+					</div>
+					<button class="buttonTotal" id="jsbutton4" onClick="blackCheck1()">Check</button>
+				</div>
+			</div>
+
+			<div class="column is-3-desktop is-5-tablet is-5-mobile">
+				<div class="box-question">
+					<div class="v-datalist-title">Fill</div>
+					<div id="observations9">
+						<div class="fill3"> Shift from Origin - Impulse 1: &emsp; <input type=number id="shift2" value=1 step=0.5> </div>
+						<div class="fill4"> Amplitude - Impulse 1: &emsp; <input id="amp2" value=1 step=0.5> </div>
+						<div class="fill3"> Shift from Origin - Impulse 2: &emsp; <input type=number id="shift3" value=1 step=0.5> </div>
+						<div class="fill4"> Amplitude - Impulse 2: &emsp; <input id="amp3" value=1 step=0.5> </div>
+						<div class="fill3"> Shift from Origin - Impulse 3: &emsp; <input type=number id="shift4" value=1 step=0.5> </div>
+						<div class="fill4"> Amplitude - Impulse 3: &emsp; <input id="amp4" value=1 step=0.5> </div>
+						<div class="fill3"> Shift from Origin - Impulse 4: &emsp; <input type=number id="shift5" value=1 step=0.5> </div>
+						<div class="fill4"> Amplitude - Impulse 4: &emsp; <input id="amp5" value=1 step=0.5> </div>
+					</div>
+				</div>
+			</div>
+
+			<div class="v-datalist-container components-list" style="margin-bottom: 20%; width: 100%;">
+				<div class="v-datalist-title">Observations</div>
+				<div class="v-datalist-row">
+					<div id="result2"></div>
+				</div>
+			</div>
+		</div>
+
+		</section>
+	</div>
+
+	<div id="BLKS" class="tabcontent">
+		<section class="imp" id="blocks">
+			<div class="max-width">
+				<h2 class="title">Build Your System</h2>
+				<div class="columns is-centered">
+					<div class="v-collapsible-instruction-container v-instruction-container">
+						<div class="v-collapsible is-size-5">Instructions</div>
+						<div class="v-content" style="text-align: left; padding-left: 10%; padding-right: 10%;">
+							<h3> This section is designed to test understanding, provide feedback, and run simulations with randomly generated inputs. An input signal and the output of an unknown LTI system are given. The unknown LTI system is assumed to be composed of three LTI systems cascaded together. The task is to identify these three systems such that the final designed system matches the provided output.To achieve this, select three LTI systems that, when cascaded, convert the given input signal to the given output system. Scalar and Shift blocks require a number by which the signal would be scaled/shifted, respectively. This is taken as input in the text boxes below the corresponding systems. </h3>
+							<br>
+							<h3> <b> Follow these steps to proceed: </b> </h3>
+							<br>
+							<h3>
+								<ol>
+									<li> Select the three systems (if you do not want the system to make any effect, select "None") </li>
+									<li> If Scalar/Shift, enter the value to be scaled/shifted in the text box below the corresponding LTI system box </li>
+									<li> Click on the "Check" button to visualize the plot in the figure </li>
+								</ol>
+							</h3>
+							<br>
+							<h3> The obtained plot shows the output of the unknown LTI system when the input is the given signal. On the same plot, the output calculated using the chosen systems and parameters entered is also plotted for comparison. (The moving average window size is fixed to 5 for all cases). </h3>
+							<br>
+							<h3> <b> The observations tab at the bottom provides feedback on whether the chosen LTI systems and given parameters are correct and whether the output constructed from them is the actual output of the given LTI system. </b> </h3>
+						</div>
+					</div>
+				</div>
+
+				<div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start"
+			style="margin-top:-1.5%">
+			<div class="column is-4-desktop is-5-tablet is-12-mobile">
+				<div class="box-question">
+					<div style = "position:relative; margin-left: -20%;" id='figure12'></div>
+				</div>
+			</div>
+
+			<div class="column is-2-desktop is-10-tablet is-12-mobile">
+				<div class="box-question">
+					<div class="box2">
+						<select id="sig-names3">
+							<option value="1">h[n]</option>
+						  </select>
+					</div>
+				</div>
+			</div>
+
+			<div class="column is-4-desktop is-5-tablet is-5-mobile">
+				<div class="box-question">
+					<div class="v-datalist-title">Output</div>
+					<div id="observations6">
+						<div style = "position:relative" id='figure13'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="columns is-centered is-flex-direction-row is-flex-wrap-wrap is-align-content-start" style="margin-top: 10%;">
+			<div class="column is-2-desktop is-5-tablet is-14-mobile">
+				<div class="box-question">
+					<div class="boxB">
+						<select id="sig-namesBLK1">
+						  <option value="1">Scaling</option>
+						  <option value="2">Shifting</option>
+						  <option value="3">Differentiator</option>
+						  <option value="4">Accumulator</option>
+						  <option value="5">Moving Average</option>
+						  <option value="6">None</option>
+						</select>
+					</div>
+					<div class="fill5"> Scale/Delay of Block1 : &emsp; <input type=number id="block1" value=1 step=0.5> </div>
+				</div>
+			</div>
+
+			<div class="column is-2-desktop is-5-tablet is-14-mobile">
+				<div class="box-question">
+					<div class="boxB">
+						<select id="sig-namesBLK2">
+						  <option value="1">Scaling</option>
+						  <option value="2">Shifting</option>
+						  <option value="3">Differentiator</option>
+						  <option value="4">Accumulator</option>
+						  <option value="5">Moving Average</option>
+						  <option value="6">None</option>
+						</select>
+					</div>
+					<div class="fill5"> Scale/Delay of Block2 : &emsp; <input type=number id="block2" value=1 step=0.5> </div>
+				</div>
+			</div>
+
+			<div class="column is-2-desktop is-5-tablet is-14-mobile">
+				<div class="box-question">
+					<div class="boxB">
+						<select id="sig-namesBLK3">
+						  <option value="1">Scaling</option>
+						  <option value="2">Shifting</option>
+						  <option value="3">Differentiator</option>
+						  <option value="4">Accumulator</option>
+						  <option value="5">Moving Average</option>
+						  <option value="6">None</option>
+						</select>
+					</div>
+					<div class="fill5"> Scale/Delay of Block3 : &emsp; <input type=number id="block3" value=1 step=0.5> </div>
+					
+					<button class="buttonTotal" id="jsbuttonBLK" onClick="blockCheck()">Check</button>
+				</div>
+			</div>
+
+			<div class="column is-3-desktop is-10-tablet is-5-mobile">
+				<div class="box-question">
+					<div class="v-datalist-title">Observation</div>
+					<div id="observations6">
+						<div style = "position:relative; margin-left: -15%;" id='figure14'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="v-datalist-container components-list" style="margin-bottom: 20%;">
+			<div class="v-datalist-title">Observations</div>
+			<div class="v-datalist-row">
+				<div id="resultBLK"></div>
+			</div>
+		</div>
+
+		</section>
+	</div>
+
+	<script src="./js/main.js"></script>
+	<script src="./js/katex.js"></script>
+	<script src="./js/render.js"></script>
+	<script src="./js/math.js"></script>
+	<script src="./js/plotly.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/virtual-labs/virtual-style@0.0.8-b/js/script.js"></script>
+
+<script src="../assets/js/iframeResize.js"></script></body>
+
+</html>
