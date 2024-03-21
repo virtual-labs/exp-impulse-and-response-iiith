@@ -29,7 +29,7 @@ html{
 @media (min-width: 1200px){
 
 .max-width{
-    max-width: 1300px;
+    /*max-width: 1300px;*/
     padding: 0 80px;
     margin: auto;
 }
@@ -56,31 +56,30 @@ section .title{
 
 .imp{
   display: flex;
-  color: #000000; /* Color of Name, and moving text in first page*/
+  color: #000000;
   background-size: cover;
   background-attachment: fixed;
   font-family: 'Ubuntu', sans-serif;
 }
 
+/* ----------------------- Drop down ----------------- */
+
 .box {
   position: relative;
   margin-left: -50%;
   margin-right: 20%;
-  margin-top: 40%;
+  margin-top: 60%;
   transform: translate(-50%, -50%);
 }
 
 .box select {
-  background-color: #98CB3B;
-  color: white;
-  padding: 12px;
   width: 100%;
-  border: none;
-  font-size: 20px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-  -webkit-appearance: button;
-  appearance: button;
-  outline: none;
+  padding: 10px;
+  margin-bottom: 0%;
+  border: 1px solid #98CB3B;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  transition: border-color 0.3s ease;
 }
 
 .box::before {
@@ -108,6 +107,51 @@ section .title{
   padding: 30px;
 }
 
+.boxx {
+  position: relative;
+  margin-left: 0%;
+  margin-right: 20%;
+  margin-top: 30%;
+  transform: translate(-50%, -50%);
+}
+
+.boxx select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 0%;
+  border: 1px solid #98CB3B;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  transition: border-color 0.3s ease;
+}
+
+.boxx::before {
+  content: "\f13a";
+  font-family: 'Ubuntu', sans-serif;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.boxx:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.boxx select option {
+  padding: 30px;
+}
+
+/* ----------------------- LTI Boxes ----------------- */
+
 .box1 {
   position: relative;
   /*margin-left: 20%;*/
@@ -123,7 +167,7 @@ section .title{
   padding: 12px;
   width: 100%;
   border-style: solid;
-  border-width: 100px;
+  border-width: 30px;
   border-block-color: #176696;
   border-block-start-color: #176696;
   border-top-color: #176696;
@@ -159,11 +203,16 @@ section .title{
   padding: 30px;
 }
 
-.fill1 {
+.fill {
+  width: calc(100% - 22px);
   position: relative;
-  top: 0%;
-  left: 0%;
+  border: 0px solid #98CB3B;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  transition: border-color 0.3s ease;
   transform: translate(-50%, -50%);
+  margin-left: 10%;
+  margin-top: 10%;
   float: left;
 }
 .fill2 {
@@ -190,7 +239,7 @@ section .title{
   padding: 12px;
   width: 100%;
   border-style: solid;
-  border-width: 80px;
+  border-width: 30px;
   border-block-color: #176696;
   border-block-start-color: #176696;
   border-top-color: #176696;
@@ -242,7 +291,7 @@ section .title{
   padding: 12px;
   width: 100%;
   border-style: solid;
-  border-width: 80px;
+  border-width: 30px;
   border-block-color: #176696;
   border-block-start-color: #176696;
   border-top-color: #176696;
@@ -302,7 +351,7 @@ section .title{
   padding: 12px;
   width: 100%;
   border-style: solid;
-  border-width: 100px;
+  border-width: 30px;
   border-block-color: #176696;
   border-block-start-color: #176696;
   border-top-color: #176696;
@@ -388,7 +437,7 @@ section .title{
   background-attachment: fixed;
   font-family: 'Ubuntu', sans-serif;
   }
-  
+
   .box {
     position: relative;
     margin-left: 30%;
@@ -398,16 +447,13 @@ section .title{
   }
   
   .box select {
-    background-color: #98CB3B;
-    color: white;
-    padding: 12px;
     width: 100%;
-    border: none;
-    font-size: 20px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-    -webkit-appearance: button;
-    appearance: button;
-    outline: none;
+    padding: 10px;
+    margin-bottom: 0%;
+    border: 1px solid #98CB3B;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    transition: border-color 0.3s ease;
   }
   
   .box::before {
@@ -434,6 +480,49 @@ section .title{
   .box select option {
     padding: 30px;
   }
+
+  .boxx {
+    position: relative;
+    margin-left: 30%;
+    margin-right: 20%;
+    margin-top: 20%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .boxx select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 0%;
+    border: 1px solid #98CB3B;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    transition: border-color 0.3s ease;
+  }
+  
+  .boxx::before {
+    content: "\f13a";
+    font-family: 'Ubuntu', sans-serif;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 45px;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+  }
+  
+  .boxx:hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .boxx select option {
+    padding: 30px;
+  }
   
   .box1 {
     position: relative;
@@ -441,7 +530,7 @@ section .title{
     margin-top: 40%;
     margin-bottom: -50%;
     transform: translate(-50%, -50%);
-    width: 90%;
+    width: 100%;
   }
   
   .box1 select {
@@ -450,7 +539,7 @@ section .title{
     padding: 12px;
     width: 100%;
     border-style: solid;
-    border-width: 100px;
+    border-width: 30px;
     border-block-color: #176696;
     border-block-start-color: #176696;
     border-top-color: #176696;
@@ -486,7 +575,7 @@ section .title{
     padding: 30px;
   }
   
-  .fill1 {
+  .fill {
     position: relative;
     margin-top: 5%;
     margin-left: 30%;
@@ -516,7 +605,7 @@ section .title{
     padding: 12px;
     width: 100%;
     border-style: solid;
-    border-width: 80px;
+    border-width: 30px;
     border-block-color: #176696;
     border-block-start-color: #176696;
     border-top-color: #176696;
@@ -556,7 +645,7 @@ section .title{
     position: relative;
     margin-top: 60%;
     margin-bottom: 60%;
-    margin-left: 40%;
+    margin-left: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
   }
@@ -567,7 +656,7 @@ section .title{
     padding: 12px;
     width: 100%;
     border-style: solid;
-    border-width: 80px;
+    border-width: 30px;
     border-block-color: #176696;
     border-block-start-color: #176696;
     border-top-color: #176696;
@@ -627,7 +716,7 @@ section .title{
     padding: 12px;
     width: 100%;
     border-style: solid;
-    border-width: 100px;
+    border-width: 30px;
     border-block-color: #176696;
     border-block-start-color: #176696;
     border-top-color: #176696;
@@ -673,9 +762,9 @@ section .title{
   
   }
 
-/* ----------------------------------------- Tabs ------------------------------------------ */
+/* ------------------------------------- Larger Tabs --------------------------------------------- */
 
-@media (max-width: 1023px) and (min-width: 720px){
+@media (max-width: 1023px) and (min-width: 768px){
 
   
 .max-width{
@@ -717,21 +806,18 @@ font-family: 'Ubuntu', sans-serif;
   position: relative;
   margin-left: 30%;
   margin-right: 20%;
-  margin-top: 20%;
+  margin-top: 10%;
   transform: translate(-50%, -50%);
 }
 
 .box select {
-  background-color: #98CB3B;
-  color: white;
-  padding: 12px;
   width: 100%;
-  border: none;
-  font-size: 20px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-  -webkit-appearance: button;
-  appearance: button;
-  outline: none;
+  padding: 10px;
+  margin-bottom: 0%;
+  border: 1px solid #98CB3B;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  transition: border-color 0.3s ease;
 }
 
 .box::before {
@@ -759,13 +845,56 @@ font-family: 'Ubuntu', sans-serif;
   padding: 30px;
 }
 
+.boxx {
+  position: relative;
+  margin-left: 30%;
+  margin-right: 20%;
+  margin-top: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.boxx select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 0%;
+  border: 1px solid #98CB3B;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  transition: border-color 0.3s ease;
+}
+
+.boxx::before {
+  content: "\f13a";
+  font-family: 'Ubuntu', sans-serif;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.boxx:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.boxx select option {
+  padding: 30px;
+}
+
 .box1 {
   position: relative;
   margin-left: 50%;
-  margin-top: 30%;
-  margin-bottom: -50%;
+  margin-top: 20%;
+  margin-bottom: -40%;
   transform: translate(-50%, -50%);
-  width: 90%;
+  width: 100%;
 }
 
 .box1 select {
@@ -774,7 +903,7 @@ font-family: 'Ubuntu', sans-serif;
   padding: 12px;
   width: 100%;
   border-style: solid;
-  border-width: 100px;
+  border-width: 30px;
   border-block-color: #176696;
   border-block-start-color: #176696;
   border-top-color: #176696;
@@ -828,8 +957,8 @@ font-family: 'Ubuntu', sans-serif;
 .box2 {
   position: relative;
   /*margin-left: 20%;*/
-  margin-top: 80%;
-  margin-left: 40%;
+  margin-top: 10%;
+  margin-left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
 }
@@ -840,7 +969,7 @@ font-family: 'Ubuntu', sans-serif;
   padding: 12px;
   width: 100%;
   border-style: solid;
-  border-width: 80px;
+  border-width: 30px;
   border-block-color: #176696;
   border-block-start-color: #176696;
   border-top-color: #176696;
@@ -879,9 +1008,9 @@ font-family: 'Ubuntu', sans-serif;
 .box3 {
   position: relative;
   /*margin-left: 20%;*/
-  margin-top: 60%;
-  margin-bottom: 60%;
-  margin-left: 40%;
+  margin-top: 20%;
+  margin-bottom: -30%;
+  margin-left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
 }
@@ -892,7 +1021,7 @@ font-family: 'Ubuntu', sans-serif;
   padding: 12px;
   width: 100%;
   border-style: solid;
-  border-width: 80px;
+  border-width: 30px;
   border-block-color: #176696;
   border-block-start-color: #176696;
   border-top-color: #176696;
@@ -952,7 +1081,7 @@ font-family: 'Ubuntu', sans-serif;
   padding: 12px;
   width: 100%;
   border-style: solid;
-  border-width: 100px;
+  border-width: 30px;
   border-block-color: #176696;
   border-block-start-color: #176696;
   border-top-color: #176696;
@@ -991,7 +1120,692 @@ font-family: 'Ubuntu', sans-serif;
 .fill5 {
   position: relative;
   margin-left: 40%;
-  margin-top: -10%;
+  margin-top: 0%;
+  transform: translate(-50%, -50%);
+  float: left;
+}
+
+}
+
+@media (max-width: 767px) and (min-width: 720px){
+
+  
+  .max-width{
+    max-width: 1024px;
+    padding: 0 40px;
+    margin: auto;
+  }
+  
+  .imp{
+  font-family: 'Poppins', sans-serif;
+  }
+  
+  .imp{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  } /* change orientations here */
+  
+  section .title{
+  position: relative;
+  text-align: center;
+  color: #000000;
+  font-size: 40px;
+  font-weight: 500;
+  margin-top: 10%;
+  font-family: 'Ubuntu', sans-serif;
+  }
+  
+  .imp{
+  display: flex;
+  color: #000000; /* Color of Name, and moving text in first page*/
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Ubuntu', sans-serif;
+  }
+  
+  .box {
+    position: relative;
+    margin-left: 30%;
+    margin-right: 20%;
+    margin-top: 10%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .box select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 0%;
+    border: 1px solid #98CB3B;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    transition: border-color 0.3s ease;
+  }
+  
+  .box::before {
+    content: "\f13a";
+    font-family: 'Ubuntu', sans-serif;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 45px;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+  }
+  
+  .box:hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .box select option {
+    padding: 30px;
+  }
+  
+  .box1 {
+    position: relative;
+    margin-left: 50%;
+    margin-top: 20%;
+    margin-bottom: -40%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+  
+  .box1 select {
+    background-color: #98CB3B;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border-style: solid;
+    border-width: 30px;
+    border-block-color: #176696;
+    border-block-start-color: #176696;
+    border-top-color: #176696;
+    border-color: #176696;
+    font-size: 20px;
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+  }
+  
+  .box1::before {
+    content: "\f13a";
+    font-family: 'Ubuntu', sans-serif;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 45px;
+    color: #176696;
+    background-color: #176696;
+    pointer-events: none;
+  }
+  
+  .box1:hover::before {
+    color: #176696;
+    background-color: #176696;
+  }
+  
+  .box1 select option {
+    padding: 30px;
+  }
+  
+  .fill1 {
+    position: relative;
+    margin-top: 5%;
+    margin-left: 30%;
+    transform: translate(-50%, -50%);
+    float: left;
+  }
+  .fill2 {
+    position: relative;
+    margin-top: 0%;
+    margin-left: 30%;
+    transform: translate(-50%, -50%);
+    float: left;
+  }
+  
+  .box2 {
+    position: relative;
+    /*margin-left: 20%;*/
+    margin-top: 10%;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+  
+  .box2 select {
+    background-color: #98CB3B;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border-style: solid;
+    border-width: 30px;
+    border-block-color: #176696;
+    border-block-start-color: #176696;
+    border-top-color: #176696;
+    border-color: #176696;
+    font-size: 20px;
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+  }
+  
+  .box2::before {
+    content: "\f13a";
+    font-family: 'Ubuntu', sans-serif;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 45px;
+    color: #176696;
+    background-color: #176696;
+    pointer-events: none;
+  }
+  
+  .box2:hover::before {
+    color: #176696;
+    background-color: #176696;
+  }
+  
+  .box2 select option {
+    padding: 30px;
+  }
+  
+  .box3 {
+    position: relative;
+    /*margin-left: 20%;*/
+    margin-top: 20%;
+    margin-bottom: -30%;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+  }
+  
+  .box3 select {
+    background-color: #98CB3B;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border-style: solid;
+    border-width: 30px;
+    border-block-color: #176696;
+    border-block-start-color: #176696;
+    border-top-color: #176696;
+    border-color: #176696;
+    font-size: 20px;
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+  }
+  
+  .box3::before {
+    content: "\f13a";
+    font-family: 'Ubuntu', sans-serif;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 45px;
+    color: #176696;
+    background-color: #176696;
+    pointer-events: none;
+  }
+  
+  .box3:hover::before {
+    color: #176696;
+    background-color: #176696;
+  }
+  
+  .box3 select option {
+    padding: 30px;
+  }
+  
+  .fill3 {
+    position: relative;
+    margin-left: 60%;
+    margin-top: 15%;
+    top: 0%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    float: left;
+  }
+  
+  .boxB {
+    position: relative;
+    margin-left: 45%;
+    margin-top: 10%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+  }
+  
+  .boxB select {
+    background-color: #98CB3B;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border-style: solid;
+    border-width: 30px;
+    border-block-color: #176696;
+    border-block-start-color: #176696;
+    border-top-color: #176696;
+    border-color: #176696;
+    font-size: 20px;
+    -webkit-appearance: button;
+    appearance: button;
+    outline: none;
+  }
+  
+  .boxB::before {
+    content: "\f13a";
+    font-family: 'Ubuntu', sans-serif;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 45px;
+    color: #176696;
+    background-color: #176696;
+    pointer-events: none;
+  }
+  
+  .boxB:hover::before {
+    color: #176696;
+    background-color: #176696;
+  }
+  
+  .boxB select option {
+    padding: 30px;
+  }
+  
+  .fill5 {
+    position: relative;
+    margin-left: 40%;
+    margin-top: 0%;
+    transform: translate(-50%, -50%);
+    float: left;
+  }
+  
+  }
+
+/* ----------------------------------------- Tabs ------------------------------------------ */
+
+@media (max-width: 767px) and (min-width: 720px){
+
+  
+.max-width{
+  max-width: 1024px;
+  padding: 0 40px;
+  margin: auto;
+}
+
+.imp{
+font-family: 'Poppins', sans-serif;
+}
+
+.imp{
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+justify-content: space-between;
+} /* change orientations here */
+
+section .title{
+position: relative;
+text-align: center;
+color: #000000;
+font-size: 40px;
+font-weight: 500;
+margin-top: 10%;
+font-family: 'Ubuntu', sans-serif;
+}
+
+.imp{
+display: flex;
+color: #000000; /* Color of Name, and moving text in first page*/
+background-size: cover;
+background-attachment: fixed;
+font-family: 'Ubuntu', sans-serif;
+}
+
+.box {
+  position: relative;
+  margin-left: 30%;
+  margin-right: 20%;
+  margin-top: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.box select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 0%;
+  border: 1px solid #98CB3B;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  transition: border-color 0.3s ease;
+}
+
+.box::before {
+  content: "\f13a";
+  font-family: 'Ubuntu', sans-serif;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.box:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.box select option {
+  padding: 30px;
+}
+
+.boxx {
+  position: relative;
+  margin-left: 30%;
+  margin-right: 20%;
+  margin-top: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.boxx select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 0%;
+  border: 1px solid #98CB3B;
+  border-radius: 5px;
+  background-color: #FFFFFF;
+  transition: border-color 0.3s ease;
+}
+
+.boxx::before {
+  content: "\f13a";
+  font-family: 'Ubuntu', sans-serif;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+}
+
+.boxx:hover::before {
+  color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.boxx select option {
+  padding: 30px;
+}
+
+.box1 {
+  position: relative;
+  margin-left: 50%;
+  margin-top: 10%;
+  margin-bottom: -40%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.box1 select {
+  background-color: #98CB3B;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border-style: solid;
+  border-width: 30px;
+  border-block-color: #176696;
+  border-block-start-color: #176696;
+  border-top-color: #176696;
+  border-color: #176696;
+  font-size: 20px;
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.box1::before {
+  content: "\f13a";
+  font-family: 'Ubuntu', sans-serif;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: #176696;
+  background-color: #176696;
+  pointer-events: none;
+}
+
+.box1:hover::before {
+  color: #176696;
+  background-color: #176696;
+}
+
+.box1 select option {
+  padding: 30px;
+}
+
+.fill1 {
+  position: relative;
+  margin-top: 5%;
+  margin-left: 30%;
+  transform: translate(-50%, -50%);
+  float: left;
+}
+.fill2 {
+  position: relative;
+  margin-top: 0%;
+  margin-left: 30%;
+  transform: translate(-50%, -50%);
+  float: left;
+}
+
+.box2 {
+  position: relative;
+  /*margin-left: 20%;*/
+  margin-top: 10%;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.box2 select {
+  background-color: #98CB3B;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border-style: solid;
+  border-width: 30px;
+  border-block-color: #176696;
+  border-block-start-color: #176696;
+  border-top-color: #176696;
+  border-color: #176696;
+  font-size: 20px;
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.box2::before {
+  content: "\f13a";
+  font-family: 'Ubuntu', sans-serif;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: #176696;
+  background-color: #176696;
+  pointer-events: none;
+}
+
+.box2:hover::before {
+  color: #176696;
+  background-color: #176696;
+}
+
+.box2 select option {
+  padding: 30px;
+}
+
+.box3 {
+  position: relative;
+  /*margin-left: 20%;*/
+  margin-top: 20%;
+  margin-bottom: -30%;
+  margin-left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.box3 select {
+  background-color: #98CB3B;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border-style: solid;
+  border-width: 30px;
+  border-block-color: #176696;
+  border-block-start-color: #176696;
+  border-top-color: #176696;
+  border-color: #176696;
+  font-size: 20px;
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.box3::before {
+  content: "\f13a";
+  font-family: 'Ubuntu', sans-serif;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: #176696;
+  background-color: #176696;
+  pointer-events: none;
+}
+
+.box3:hover::before {
+  color: #176696;
+  background-color: #176696;
+}
+
+.box3 select option {
+  padding: 30px;
+}
+
+.fill3 {
+  position: relative;
+  margin-left: 60%;
+  margin-top: 15%;
+  top: 0%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  float: left;
+}
+
+.boxB {
+  position: relative;
+  margin-left: 45%;
+  margin-top: 10%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+}
+
+.boxB select {
+  background-color: #98CB3B;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border-style: solid;
+  border-width: 30px;
+  border-block-color: #176696;
+  border-block-start-color: #176696;
+  border-top-color: #176696;
+  border-color: #176696;
+  font-size: 20px;
+  -webkit-appearance: button;
+  appearance: button;
+  outline: none;
+}
+
+.boxB::before {
+  content: "\f13a";
+  font-family: 'Ubuntu', sans-serif;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  font-size: 28px;
+  line-height: 45px;
+  color: #176696;
+  background-color: #176696;
+  pointer-events: none;
+}
+
+.boxB:hover::before {
+  color: #176696;
+  background-color: #176696;
+}
+
+.boxB select option {
+  padding: 30px;
+}
+
+.fill5 {
+  position: relative;
+  margin-left: 40%;
+  margin-top: 0%;
   transform: translate(-50%, -50%);
   float: left;
 }
@@ -1041,22 +1855,19 @@ font-family: 'Ubuntu', sans-serif;
   .box {
     position: relative;
     margin-left: 20%;
-    margin-right: 20%;
+    margin-right: 30%;
     margin-top: 30%;
     transform: translate(-50%, -50%);
   }
   
   .box select {
-    background-color: #98CB3B;
-    color: white;
-    padding: 12px;
     width: 100%;
-    border: none;
-    font-size: 20px;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-    -webkit-appearance: button;
-    appearance: button;
-    outline: none;
+    padding: 10px;
+    margin-bottom: 0%;
+    border: 1px solid #98CB3B;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    transition: border-color 0.3s ease;
   }
   
   .box::before {
@@ -1084,11 +1895,54 @@ font-family: 'Ubuntu', sans-serif;
     padding: 30px;
   }
 
+  .boxx {
+    position: relative;
+    margin-left: 20%;
+    margin-right: 30%;
+    margin-top: 30%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .boxx select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 0%;
+    border: 1px solid #98CB3B;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    transition: border-color 0.3s ease;
+  }
+  
+  .boxx::before {
+    content: "\f13a";
+    font-family: 'Ubuntu', sans-serif;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 20%;
+    height: 100%;
+    text-align: center;
+    font-size: 28px;
+    line-height: 45px;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.1);
+    pointer-events: none;
+  }
+  
+  .boxx:hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .boxx select option {
+    padding: 30px;
+  }
+
   .box1 {
     position: relative;
     margin-left: 40%;
-    margin-top: 75%;
-    margin-bottom: -50%;
+    margin-top: 10%;
+    margin-bottom: -40%;
     transform: translate(-50%, -50%);
     width: 100%;
   }
@@ -1099,7 +1953,7 @@ font-family: 'Ubuntu', sans-serif;
     padding: 12px;
     width: 100%;
     border-style: solid;
-    border-width: 100px;
+    border-width: 30px;
     border-block-color: #176696;
     border-block-start-color: #176696;
     border-top-color: #176696;
@@ -1157,7 +2011,7 @@ font-family: 'Ubuntu', sans-serif;
   .box2 {
     position: relative;
     /*margin-left: 20%;*/
-    margin-top: 80%;
+    margin-top: 20%;
     margin-left: 40%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -1169,7 +2023,7 @@ font-family: 'Ubuntu', sans-serif;
     padding: 12px;
     width: 100%;
     border-style: solid;
-    border-width: 80px;
+    border-width: 30px;
     border-block-color: #176696;
     border-block-start-color: #176696;
     border-top-color: #176696;
@@ -1208,8 +2062,8 @@ font-family: 'Ubuntu', sans-serif;
   .box3 {
     position: relative;
     /*margin-left: 20%;*/
-    margin-top: 60%;
-    margin-bottom: 60%;
+    margin-top: 20%;
+    margin-bottom: -30%;
     margin-left: 40%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -1221,7 +2075,7 @@ font-family: 'Ubuntu', sans-serif;
     padding: 12px;
     width: 100%;
     border-style: solid;
-    border-width: 80px;
+    border-width: 30px;
     border-block-color: #176696;
     border-block-start-color: #176696;
     border-top-color: #176696;
@@ -1281,7 +2135,7 @@ font-family: 'Ubuntu', sans-serif;
     padding: 12px;
     width: 100%;
     border-style: solid;
-    border-width: 100px;
+    border-width: 30px;
     border-block-color: #176696;
     border-block-start-color: #176696;
     border-top-color: #176696;
@@ -1320,7 +2174,7 @@ font-family: 'Ubuntu', sans-serif;
   .fill5 {
     position: relative;
     margin-left: 45%;
-    margin-top: -35%;
+    margin-top: -2%;
     transform: translate(-50%, -50%);
     float: left;
   }
@@ -1363,18 +2217,19 @@ section{
 
 /* ----------------------------------------- Plot Button -----------------------------------------------------*/
 
-.button1{
-  all: unset;
-  width: 100px;
-  height: 30px;
-  font-size: 16px;
-  background: transparent;
-  border: none;
+.buttonTotal {
+  display: block;
+  width: 30%;
+  height: 20%;
+  font-size: 100%;
   position: relative;
-  color: #f0f0f0;
-  cursor: pointer;
-  z-index: 1;
   padding: 10px 20px;
+  background-color: #98CB3B;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1386,223 +2241,9 @@ section{
   margin-top: 40%;
 }
 
-.button2{
-  all: unset;
-  width: 100px;
-  height: 30px;
-  font-size: 16px;
-  background: transparent;
-  border: none;
-  position: relative;
-  color: #f0f0f0;
-  cursor: pointer;
-  z-index: 1;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  margin-left: 50%;
-  margin-top: 10%;
-}
-
-.button8{
-  all: unset;
-  width: 100px;
-  height: 30px;
-  font-size: 16px;
-  background: transparent;
-  border: none;
-  position: relative;
-  color: #f0f0f0;
-  cursor: pointer;
-  z-index: 1;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  margin-left: 0%;
-  margin-top: -10%;
-}
-
-.button1::after,.button1::before,.button2::after,.button2::before,.button8::after,.button8::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: -99999;
-  transition: all .4s;
-}
-
-.button1::before,.button2::before,.button8::before {
-  transform: translate(0%, 0%);
-  width: 100%;
-  height: 100%;
-  background: #2C9AD1;
-  border-radius: 10px;
-}
-
-.button1::after,.button2::after,.button8::after {
-  transform: translate(10px, 10px);
-  width: 35px;
-  height: 35px;
-  background: #ffffff15;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border-radius: 50px;
-}
-
-.button1:hover::before,.button2:hover::before,.button8:hover::before {
-  transform: translate(5%, 20%);
-  width: 110%;
-  height: 110%;
-}
-
-.button1:hover::after,.button2:hover::after,.button8:hover::after {
-  border-radius: 10px;
-  transform: translate(0, 0);
-  width: 100%;
-  height: 100%;
-}
-
-.button1:active::after,.button2:active::after,.button8:active::after {
-  transition: 0s;
-  transform: translate(0, 5%);
-}
-
-/* ------------------------------- LTI Box ------------------------------------------- */
-
-/* ------------------------------- LTI Box 2 ------------------------------------------- */
-
-/* ------------------------------- LTI Box 4 ------------------------------------------- */
-
-.box4 {
-  position: relative;
-  /*margin-left: 20%;*/
-  margin-top: 30%;
-  margin-bottom: 60%;
-  margin-left: 40%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-}
-
-.box4 select {
-  background-color: #98CB3B;
-  color: white;
-  padding: 12px;
-  width: 100%;
-  border-style: solid;
-  border-width: 80px;
-  border-block-color: #176696;
-  border-block-start-color: #176696;
-  border-top-color: #176696;
-  border-color: #176696;
-  font-size: 20px;
-  -webkit-appearance: button;
-  appearance: button;
-  outline: none;
-}
-
-.box4::before {
-  content: "\f13a";
-  font-family: 'Ubuntu', sans-serif;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 20%;
-  height: 100%;
-  text-align: center;
-  font-size: 28px;
-  line-height: 45px;
-  color: #176696;
-  background-color: #176696;
-  pointer-events: none;
-}
-
-.box4:hover::before {
-  color: #176696;
-  background-color: #176696;
-}
-
-.box4 select option {
-  padding: 30px;
-}
-
-/* ----------------------------------- Multi button ----------------------------------------- */
-
-.button3{
-  all: unset;
-  width: 100px;
-  height: 30px;
-  font-size: 16px;
-  background: transparent;
-  border: none;
-  position: relative;
-  color: #f0f0f0;
-  cursor: pointer;
-  z-index: 1;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  margin-left: 10%;
-  margin-top: -70%;
-}
-
-.button3::after,.button3::before{
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: -99999;
-  transition: all .4s;
-}
-
-.button3::before{
-  transform: translate(0%, 0%);
-  width: 100%;
-  height: 100%;
-  background: #2C9AD1;
-  border-radius: 10px;
-}
-
-.button3::after{
-  transform: translate(10px, 10px);
-  width: 35px;
-  height: 35px;
-  background: #ffffff15;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border-radius: 50px;
-}
-
-.button3:hover::before{
-  transform: translate(5%, 20%);
-  width: 110%;
-  height: 110%;
-}
-
-.button3:hover::after{
-  border-radius: 10px;
-  transform: translate(0, 0);
-  width: 100%;
-  height: 100%;
-}
-
-.button3:active::after{
-  transition: 0s;
-  transform: translate(0, 5%);
+.buttonTotal:hover {
+  background-color: #2C9AD1;
+  transform: scale(1.05);
 }
 
 /* ---------------------------------------------------- Tabs -------------------------------------------- */
@@ -1643,75 +2284,4 @@ section{
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
-}
-
-/* ------------------------------------------- blocks --------------------------------- */
-
-.buttonB{
-  all: unset;
-  width: 100px;
-  height: 30px;
-  font-size: 16px;
-  background: transparent;
-  background: #2C9AD1;
-  border: none;
-  position: relative;
-  color: #f0f0f0;
-  cursor: pointer;
-  z-index: 1;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  margin-left: 10%;
-  border-radius: 15%;
-}
-
-.buttonB::after,.button3::before{
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: -99999;
-  transition: all .4s;
-}
-
-.buttonB::before{
-  transform: translate(0%, 0%);
-  width: 100%;
-  height: 100%;
-  background: #2C9AD1;
-  border-radius: 10px;
-}
-
-.buttonB::after{
-  transform: translate(10px, 10px);
-  width: 35px;
-  height: 35px;
-  background: #ffffff15;
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
-  border-radius: 50px;
-}
-
-.buttonB:hover::before{
-  transform: translate(5%, 20%);
-  width: 110%;
-  height: 110%;
-}
-
-.buttonB:hover::after{
-  border-radius: 010px;
-  transform: translate(0, 0);
-  width: 100%;
-  height: 100%;
-}
-
-.buttonB:active::after{
-  transition: 0s;
-  transform: translate(0, 5%);
 }
