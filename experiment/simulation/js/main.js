@@ -352,7 +352,7 @@ function syst(){
         y: yValues,
         type: 'scatter',
         name: 'output',
-        mode: 'line'
+        mode: 'markers'
     };
 
     var trace2 = {
@@ -360,7 +360,7 @@ function syst(){
         y: sigValues,
         type: 'scatter',
         name: 'input',
-        mode: 'line'
+        mode: 'markers'
     };
       
     var data = [trace1,trace2];
@@ -408,13 +408,13 @@ function mavg(){
     std = parseFloat(std);
     var wind = document.getElementById("filter").value;
     wind = parseFloat(wind);
-    if(wind>80)
+    if(wind>81)
     {
-        wind = 80;
+        wind = 81;
     }
-    if(wind<2)
+    if(wind<1)
     {
-        wind = 2;
+        wind = 1;
     }
     am = 1;
     freq = 0.5;
@@ -494,37 +494,71 @@ function mavg(){
     for (var i=0; i<=80; i++)
     {
         sigValues[i] = sigValues[i]+std*(Math.random()-0.5);
-        yValues.push(sigValues[i]);
     }
 
-    if(wind%2)
+    if(wind==1)
     {
-        var start = (wind-1)/2;
-        var last = 81-((wind-1)/2);
-        for(var i=start; i<last; i++)
+        for (var i=0; i<=80; i++)
         {
-            var sum = 0;
-            for(var j=i-(wind-1)/2; j<i+(wind-1)/2; j++)
-            {
-                sum = sum+sigValues[j];
-            }
-            yValues[i] = sum/wind;
+            yValues.push(sigValues[i]);
         }
+        console.log('Here');
     }
     else
     {
-        var start = (wind)/2;
-        var last = 81-((wind)/2);
-        for(var i=start; i<last; i++)
+
+        var sigValuesPadded = [];
+
+        if(wind%2)
+        {
+            for(var i=0; i<Math.floor((wind-1)/2); i++)
+            {    
+                sigValuesPadded.push(0);
+            }
+            for(var i=0; i<=80; i++)
+            {    
+                sigValuesPadded.push(sigValues[i]);
+            }
+            for(var i=0; i<Math.floor((wind-1)/2); i++)
+            {    
+                sigValuesPadded.push(0);
+            }
+        }
+        else
+        {
+            for(var i=0; i<Math.floor((wind)/2); i++)
+            {    
+                sigValuesPadded.push(0);
+            }
+            for(var i=0; i<=80; i++)
+            {    
+                sigValuesPadded.push(sigValues[i]);
+            }
+            for(var i=0; i<Math.floor((wind)/2)-1; i++)
+            {    
+                sigValuesPadded.push(0);
+            }
+        }
+
+        var start = 0;
+        var last = wind;
+
+        while(last<=sigValuesPadded.length)
         {
             var sum = 0;
-            for(var j=i-(wind)/2; j<i+(wind)/2; j++)
+            for(var j=start; j<last; j++)
             {
-                sum = sum+sigValues[j];
+                //console.log(start);
+                sum = sum+sigValuesPadded[j];
             }
-            yValues[i] = sum/wind;
+            yValues.push(sum/wind);
+            start++;
+            last++;
         }
     }
+
+    //console.log(sigValues.length,yValues.length);
+    //return;
 
     var trace1 = {
         x: xValues,
@@ -587,8 +621,8 @@ function black(){
     var sigValues = [];
     var yValues = [];
 
-    k = Math.floor(Math.random() * 161)-80;
-    p = Math.floor(Math.random() * 161)-80;
+    k = Math.floor(Math.random() * 20)-10;
+    p = Math.floor(Math.random() * 20)-10;
 
     var xValues = makeArr(-80,80,161);
     for (var i=0; i<=160; i++)
@@ -613,7 +647,7 @@ function black(){
 
     for (var i=0; i<=160; i++)
     {
-        sigValues1.push(Math.sin(0.125*(2*Math.PI*xValues[i])));
+        sigValues1.push(Math.sin(0.25*(2*Math.PI*xValues[i])));
         sigValues2.push(0);
     }
 
@@ -1168,7 +1202,7 @@ function blocks(){
     yValues = [];
     inValues = [];
 
-    sigChoice = Math.floor(Math.random()*2); // 0 is for pulse and 1 is for sine
+    sigChoice = 0; // 0 is for pulse and 1 is for sine
     scaleChoice = Math.floor(Math.random()*41)-20; // scale for signal, range is -20 to 20
     while(scaleChoice==0)
     {
@@ -1235,7 +1269,7 @@ function blocks(){
         y: inValues,
         type: 'scatter',
         name: 'Desired Output',
-        mode: 'lines'
+        mode: 'markers'
     };
     var data1 = [trace1];
 
@@ -1256,7 +1290,7 @@ function blocks(){
         y: yFinal,
         type: 'scatter',
         name: 'Desired Output',
-        mode: 'lines'
+        mode: 'markers'
     };
     var data2 = [trace2];
 
@@ -1445,14 +1479,14 @@ function blockCheck(){
                 y: yFinal,
                 type: 'scatter',
                 name: 'Desired Output',
-                mode: 'lines'
+                mode: 'markers'
             };
             var trace2 = {
                 x: xValues,
                 y: yHere,
                 type: 'scatter',
                 name: 'Your Output',
-                mode: 'lines'
+                mode: 'markers'
             };
             var data1 = [trace1,trace2];
         
@@ -1499,14 +1533,14 @@ function blockCheck(){
         y: yFinal,
         type: 'scatter',
         name: 'Desired Output',
-        mode: 'lines',
+        mode: 'markers'
     };
     var trace2 = {
         x: xValues,
         y: yHere,
         type: 'scatter',
         name: 'Your Output',
-        mode: 'lines',
+        mode: 'markers',
         line: {
             color: 'rgb(0, 128, 0)',
         }
