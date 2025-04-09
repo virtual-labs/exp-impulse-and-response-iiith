@@ -6,7 +6,7 @@
       "answers": {
         "a": "$y(t)=x^2(t)$",
         "b": "$y(t)=\\sin (x(t))$",
-        "c": "$y(t)=5+x(t)$",
+        "c": "$y(t)=5 \\cdot x(t)$",
         "d": "$y(t)=x\\left(t^2\\right)$"
       },
       "correctAnswer": "c",
