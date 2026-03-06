@@ -508,10 +508,13 @@ function mavg(){
     {
 
         var sigValuesPadded = [];
+        
+        var padSize = wind % 2 ? Math.floor((wind-1)/2) : Math.floor(wind/2);
+        var lastRampValue = sel === 3 ? sigValues[80] : 0;
 
         if(wind%2)
         {
-            for(var i=0; i<Math.floor((wind-1)/2); i++)
+            for(var i=0; i<padSize; i++)
             {    
                 sigValuesPadded.push(0);
             }
@@ -519,14 +522,14 @@ function mavg(){
             {    
                 sigValuesPadded.push(sigValues[i]);
             }
-            for(var i=0; i<Math.floor((wind-1)/2); i++)
+            for(var i=0; i<padSize; i++)
             {    
-                sigValuesPadded.push(0);
+                sigValuesPadded.push(lastRampValue + (i + 1));
             }
         }
         else
         {
-            for(var i=0; i<Math.floor((wind)/2); i++)
+            for(var i=0; i<padSize; i++)
             {    
                 sigValuesPadded.push(0);
             }
@@ -534,9 +537,9 @@ function mavg(){
             {    
                 sigValuesPadded.push(sigValues[i]);
             }
-            for(var i=0; i<Math.floor((wind)/2)-1; i++)
+            for(var i=0; i<padSize-1; i++)
             {    
-                sigValuesPadded.push(0);
+                sigValuesPadded.push(lastRampValue + (i + 1));
             }
         }
 
@@ -613,74 +616,74 @@ function mavg(){
 // ------------------------------------------ Black Box1 ----------------------------------------------------------
 
 function black(){
-    var sigValues = [];
-    var sigValues1 = [];
-    var sigValues2 = [];
-    var yValues = [];
-
-    var sigValues = [];
-    var yValues = [];
+    var impulseInput = [];
+    var impulseOutput = [];
+    var sineInput = [];
+    var sineOutput = [];
 
     k = Math.floor(Math.random() * 20)-10;
-    p = Math.floor(Math.random() * 20)-10;
-
-    var xValues = makeArr(-80,80,161);
-    for (var i=0; i<=160; i++)
-    {
-        if(xValues[i]==p)
-        {
-            yValues.push(k);
-        }
-        else
-        {
-            yValues.push(0);
-        }
-        if(xValues[i]==0)
-        {
-            sigValues.push(1);
-        }
-        else
-        {
-            sigValues.push(0);
-        }
+    while(k === 0) {
+        k = Math.floor(Math.random() * 20)-10;
     }
+    p = Math.floor(Math.random() * 12)-6;
+    
+    var inputFreq = 0.5;
 
+    var xValues = makeArr(-2*Math.PI, 2*Math.PI, 161);
     for (var i=0; i<=160; i++)
     {
-        sigValues1.push(Math.sin(0.25*(2*Math.PI*xValues[i])));
-        sigValues2.push(0);
+        if(Math.abs(xValues[i]) < 0.1)
+        {
+            impulseInput.push(1);
+        }
+        else
+        {
+            impulseInput.push(0);
+        }
+        
+        if(Math.abs(xValues[i] - p) < 0.1)
+        {
+            impulseOutput.push(k);
+        }
+        else
+        {
+            impulseOutput.push(0);
+        }
+        
+        sineInput.push(Math.sin(2 * Math.PI * inputFreq * xValues[i]));
+        sineOutput.push(k * Math.sin(2 * Math.PI * inputFreq * (xValues[i] - p)));
     }
 
     var trace1 = {
         x: xValues,
-        y: sigValues,
+        y: impulseInput,
         type: 'scatter',
-        name: 'output',
+        name: 'Input',
         mode: 'markers'
     };
 
     var trace2 = {
         x: xValues,
-        y: yValues,
+        y: impulseOutput,
         type: 'scatter',
-        name: 'Desired Output',
+        name: 'Output',
         mode: 'markers'
     };
 
     var trace3 = {
         x: xValues,
-        y: sigValues1,
+        y: sineInput,
         type: 'scatter',
-        name: 'output',
+        name: 'Input',
         mode: 'line'
     };
 
     var trace4 = {
         x: xValues,
-        y: sigValues2,
+        y: sineOutput,
         type: 'scatter',
-        name: 'output',
-        mode: 'markers'
+        name: 'Output',
+        mode: 'line'
     };
       
     var data1 = [trace1];
@@ -691,22 +694,22 @@ function black(){
     var config = {responsive: true}
 
     var layout1 = {
-        title: 'Input Signal',
+        title: 'Input Signal (Impulse)',
         xaxis: {
-            title: 'Time [n]'
+            title: 'Time (t)'
         },
         yaxis: {
-            title: 'Amplitude (A)'
+            title: 'Amplitude'
         }
     };
 
     var layout2 = {
-        title: 'Output Signal',
+        title: 'Output Signal (Impulse Response)',
         xaxis: {
-            title: 'Time [n]'
+            title: 'Time (t)'
         },
         yaxis: {
-            title: 'Amplitude (A)'
+            title: 'Amplitude'
         }
     };
       
@@ -797,7 +800,9 @@ function blackCheck(){
     var sh = document.getElementById("shift1").value;
     sh = parseFloat(sh);
 
-    if(freq!=8 || am!=k || sh!=p)
+    var inputFreq = 0.5;
+
+    if(Math.abs(freq-inputFreq) > 0.01 || Math.abs(am-k) > 0.01 || Math.abs(sh-p) > 0.01)
     {
         var element = document.getElementById("result1")
         element.style.color = "#FF0000";
@@ -812,23 +817,27 @@ function blackCheck(){
         element.innerHTML = 'Right Answer!';
     }
 
-    var xValues = makeArr(-20,20,41);
+    var xValues = makeArr(-2*Math.PI, 2*Math.PI, 201);
 
-    for (var i=0; i<=40; i++)
+    for (var i=0; i<=200; i++)
     {
-        yValues.push(am*Math.sin((1/freq)*2*Math.PI*(xValues[i])-sh));
-        yValues1.push(k*Math.sin(0.125*2*Math.PI*(xValues[i])-p));
+        yValues.push(am * Math.sin(2 * Math.PI * freq * (xValues[i] - sh)));
+    }
+
+    for (var i=0; i<=200; i++)
+    {
+        yValues1.push(k * Math.sin(2 * Math.PI * inputFreq * (xValues[i] - p)));
     }
 
     var trace1 = {
         x: xValues,
         y: yValues,
         type: 'scatter',
-        name: 'Your-Output',
+        name: 'Your Output',
         mode: 'line',
-        marker: {
+        line: {
             color: 'rgb(255, 0, 0)',
-            size: 8
+            width: 3
         }
     };
 
@@ -836,25 +845,25 @@ function blackCheck(){
         x: xValues,
         y: yValues1,
         type: 'scatter',
-        name: 'Ideal-Output',
+        name: 'Ideal Output',
         mode: 'line',
-        marker: {
+        line: {
             color: 'rgb(0, 255, 0)',
-            size: 8
+            width: 3
         }
     };
       
-    var data1 = [trace1,trace2];
+    var data1 = [trace1, trace2];
 
     var config = {responsive: true}
 
     var layout2 = {
-        title: 'Simulated',
+        title: 'Comparison',
         xaxis: {
-            title: 'Time [n]'
+            title: 'Time (t)'
         },
         yaxis: {
-            title: 'Amplitude (A)'
+            title: 'Amplitude'
         }
     };
 
@@ -1172,22 +1181,23 @@ function defFunction(choice, signal){
     }
     else if(choice==2)
     {
-        // ma
         var wind = 5;
-        var start = (wind-1)/2;
-        var last = 120-((wind-1)/2);
-        for(var i=0; i<120; i++)
-        {
-            out.push(signal[i]);
-        }
-        for(var i=start; i<last; i++)
+        var pad = Math.floor((wind - 1) / 2);
+        var signalLength = signal.length;
+        
+        for (var i = 0; i < signalLength; i++)
         {
             var sum = 0;
-            for(var j=i-(wind-1)/2; j<i+(wind-1)/2; j++)
+            var count = 0;
+            for (var j = i - pad; j <= i + pad; j++)
             {
-                sum = sum+signal[j];
+                if (j >= 0 && j < signalLength)
+                {
+                    sum += signal[j];
+                    count++;
+                }
             }
-            out[i] = sum/wind;
+            out.push(sum / count);
         }
     }
     else
@@ -1367,17 +1377,17 @@ function blockCheck(){
     var actual = yFinal;
 
     var b1 = document.getElementById("sig-namesBLK1").value;
-    b1 = parseInt(b1);
+    b1 = parseFloat(b1);
     var b2 = document.getElementById("sig-namesBLK2").value;
-    b2 = parseInt(b2);
+    b2 = parseFloat(b2);
     var b3 = document.getElementById("sig-namesBLK3").value;
-    b3 = parseInt(b3);
+    b3 = parseFloat(b3);
     var v1 = document.getElementById("block1").value;
-    v1 = parseInt(v1);
+    v1 = parseFloat(v1);
     var v2 = document.getElementById("block2").value;
-    v2 = parseInt(v2);
+    v2 = parseFloat(v2);
     var v3 = document.getElementById("block3").value;
-    v3 = parseInt(v3);
+    v3 = parseFloat(v3);
 
     var yHere = [];
 
