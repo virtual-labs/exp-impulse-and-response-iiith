@@ -291,11 +291,11 @@ function syst(){
         {
             var x = xValues[i];
             // Haar wavelet: positive at [0, 1), negative at [1, 2)
-            if(x >= 0 && x < 1)
+            if(x >= 0 && x < 5)
             {
                 sigValues.push(am);
             }
-            else if(x >= 1 && x < 2)
+            else if(x >= 5 && x < 10)
             {
                 sigValues.push(-am);
             }
@@ -488,11 +488,11 @@ function mavg(){
         {
             var x = xValues[i];
             // Haar wavelet: positive at [0, 1), negative at [1, 2)
-            if(x >= 0 && x < 1)
+            if(x >= 0 && x < 5)
             {
                 sigValues.push(am);
             }
-            else if(x >= 1 && x < 2)
+            else if(x >= 5 && x < 10)
             {
                 sigValues.push(-am);
             }
