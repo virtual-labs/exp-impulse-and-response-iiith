@@ -1,3 +1,4 @@
+
 function openPart(evt, name) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -85,7 +86,7 @@ function impStp(){
             }
         }
     }
-    
+
     if(sel==1)
     {
         var xValues = makeArr(-20,20,41);
@@ -138,7 +139,7 @@ function impStp(){
         type: 'scatter',
         mode: 'markers'
     };
-      
+
     var data = [trace1];
 
     var config = {responsive: true}
@@ -169,9 +170,9 @@ function impStp(){
             }
         };
     }
-      
+
     Plotly.newPlot('figure1', data, layout, config);
-    
+
     if(screen.width < 769)
     {
         var update = {
@@ -281,16 +282,21 @@ function syst(){
     }
     else
     {
+        // Haar wavelet: psi_{n,0}(t) = 2^(n/2) * psi(2^n * t - k)
+        // where psi(t) = 1 for 0 <= t < 0.5, -1 for 0.5 <= t < 1, 0 otherwise
+        // For discrete-time, centered at origin
         var xValues = makeArr(-20,20,41);
         var xValues1 = makeArr(-10,30,41);
-        freq = 2;
+        // Haar wavelet with scale parameter
         for (var i=0; i<=40; i++)
         {
-            if(i<parseFloat(20/freq))
+            var x = xValues[i];
+            // Haar wavelet: positive at [0, 1), negative at [1, 2)
+            if(x >= 0 && x < 1)
             {
                 sigValues.push(am);
             }
-            else if(i<parseFloat(40/freq))
+            else if(x >= 1 && x < 2)
             {
                 sigValues.push(-am);
             }
@@ -298,11 +304,13 @@ function syst(){
             {
                 sigValues.push(0);
             }
-            if(i<parseFloat(30/freq))
+
+            var x1 = xValues1[i];
+            if(x1 >= 0 && x1 < 1)
             {
                 sigValues1.push(am);
             }
-            else if(i<parseFloat(50/freq))
+            else if(x1 >= 1 && x1 < 2)
             {
                 sigValues1.push(-am);
             }
@@ -312,7 +320,7 @@ function syst(){
             }
         }
     }
-    
+
     if(sel1==1)
     {
         var yValues = [];
@@ -362,7 +370,7 @@ function syst(){
         name: 'input',
         mode: 'markers'
     };
-      
+
     var data = [trace1,trace2];
 
     var config = {responsive: true}
@@ -376,9 +384,9 @@ function syst(){
             title: 'Amplitude (A)'
         }
     };
-      
+
     Plotly.newPlot('figure3', data, layout, config);
-    
+
     if(screen.width < 769)
     {
         var update = {
@@ -473,14 +481,19 @@ function mavg(){
     }
     else
     {
+        // Haar wavelet: psi_{n,0}(t) = 2^(n/2) * psi(2^n * t - k)
+        // where psi(t) = 1 for 0 <= t < 0.5, -1 for 0.5 <= t < 1, 0 otherwise
+        // For discrete-time, centered at origin
         var xValues = makeArr(-40,40,81);
         for (var i=0; i<=80; i++)
         {
-            if(i<parseFloat(40/freq))
+            var x = xValues[i];
+            // Haar wavelet: positive at [0, 1), negative at [1, 2)
+            if(x >= 0 && x < 1)
             {
                 sigValues.push(am);
             }
-            else if(i<parseFloat(80/freq))
+            else if(x >= 1 && x < 2)
             {
                 sigValues.push(-am);
             }
@@ -508,37 +521,37 @@ function mavg(){
     {
 
         var sigValuesPadded = [];
-        
+
         var padSize = wind % 2 ? Math.floor((wind-1)/2) : Math.floor(wind/2);
         var lastRampValue = sel === 3 ? sigValues[80] : 0;
 
         if(wind%2)
         {
             for(var i=0; i<padSize; i++)
-            {    
+            {
                 sigValuesPadded.push(0);
             }
             for(var i=0; i<=80; i++)
-            {    
+            {
                 sigValuesPadded.push(sigValues[i]);
             }
             for(var i=0; i<padSize; i++)
-            {    
+            {
                 sigValuesPadded.push(lastRampValue + (i + 1));
             }
         }
         else
         {
             for(var i=0; i<padSize; i++)
-            {    
+            {
                 sigValuesPadded.push(0);
             }
             for(var i=0; i<=80; i++)
-            {    
+            {
                 sigValuesPadded.push(sigValues[i]);
             }
             for(var i=0; i<padSize-1; i++)
-            {    
+            {
                 sigValuesPadded.push(lastRampValue + (i + 1));
             }
         }
@@ -578,7 +591,7 @@ function mavg(){
         name: 'noisy',
         mode: 'line'
     };
-      
+
     var data = [trace1,trace2];
 
     var config = {responsive: true}
@@ -592,9 +605,9 @@ function mavg(){
             title: 'Amplitude (A)'
         }
     };
-      
+
     Plotly.newPlot('figure11', data, layout, config);
-    
+
     if(screen.width < 769)
     {
         var update = {
@@ -626,13 +639,11 @@ function black(){
         k = Math.floor(Math.random() * 20)-10;
     }
     p = Math.floor(Math.random() * 12)-6;
-    
-    var inputFreq = 0.5;
 
-    var xValues = makeArr(-2*Math.PI, 2*Math.PI, 161);
-    for (var i=0; i<=160; i++)
+    var xValues = makeArr(-20, 20, 41);
+    for (var i=0; i<=40; i++)
     {
-        if(Math.abs(xValues[i]) < 0.1)
+        if(xValues[i] == 0)
         {
             impulseInput.push(1);
         }
@@ -640,8 +651,8 @@ function black(){
         {
             impulseInput.push(0);
         }
-        
-        if(Math.abs(xValues[i] - p) < 0.1)
+
+        if(xValues[i] == p)
         {
             impulseOutput.push(k);
         }
@@ -649,9 +660,9 @@ function black(){
         {
             impulseOutput.push(0);
         }
-        
-        sineInput.push(Math.sin(2 * Math.PI * inputFreq * xValues[i]));
-        sineOutput.push(k * Math.sin(2 * Math.PI * inputFreq * (xValues[i] - p)));
+
+        sineInput.push(Math.sin(0.5 * xValues[i]));
+        sineOutput.push(k * Math.sin(0.5 * (xValues[i] - p)));
     }
 
     var trace1 = {
@@ -685,7 +696,7 @@ function black(){
         name: 'Output',
         mode: 'line'
     };
-      
+
     var data1 = [trace1];
     var data2 = [trace2];
     var data3 = [trace3];
@@ -696,7 +707,7 @@ function black(){
     var layout1 = {
         title: 'Input Signal (Impulse)',
         xaxis: {
-            title: 'Time (t)'
+            title: 'Time [n]'
         },
         yaxis: {
             title: 'Amplitude'
@@ -706,15 +717,15 @@ function black(){
     var layout2 = {
         title: 'Output Signal (Impulse Response)',
         xaxis: {
-            title: 'Time (t)'
+            title: 'Time [n]'
         },
         yaxis: {
             title: 'Amplitude'
         }
     };
-      
+
     Plotly.newPlot('figure4', data1, layout1, config);
-    
+
     if(screen.width < 769)
     {
         var update = {
@@ -732,7 +743,7 @@ function black(){
 
     Plotly.relayout('figure4', update);
     Plotly.newPlot('figure6', data2, layout2, config);
-    
+
     if(screen.width < 769)
     {
         var update = {
@@ -750,7 +761,7 @@ function black(){
 
     Plotly.relayout('figure6', update);
     Plotly.newPlot('figure5', data3, layout1, config);
-    
+
     if(screen.width < 769)
     {
         var update = {
@@ -768,7 +779,7 @@ function black(){
 
     Plotly.relayout('figure5', update);
     Plotly.newPlot('figure7', data4, layout2, config);
-    
+
     if(screen.width < 769)
     {
         var update = {
@@ -817,16 +828,16 @@ function blackCheck(){
         element.innerHTML = 'Right Answer!';
     }
 
-    var xValues = makeArr(-2*Math.PI, 2*Math.PI, 201);
+    var xValues = makeArr(-20, 20, 41);
 
-    for (var i=0; i<=200; i++)
+    for (var i=0; i<=40; i++)
     {
-        yValues.push(am * Math.sin(2 * Math.PI * freq * (xValues[i] - sh)));
+        yValues.push(am * Math.sin(freq * (xValues[i] - sh)));
     }
 
-    for (var i=0; i<=200; i++)
+    for (var i=0; i<=40; i++)
     {
-        yValues1.push(k * Math.sin(2 * Math.PI * inputFreq * (xValues[i] - p)));
+        yValues1.push(k * Math.sin(inputFreq * (xValues[i] - p)));
     }
 
     var trace1 = {
@@ -852,7 +863,7 @@ function blackCheck(){
             width: 3
         }
     };
-      
+
     var data1 = [trace1, trace2];
 
     var config = {responsive: true}
@@ -860,7 +871,7 @@ function blackCheck(){
     var layout2 = {
         title: 'Comparison',
         xaxis: {
-            title: 'Time (t)'
+            title: 'Time [n]'
         },
         yaxis: {
             title: 'Amplitude'
@@ -868,7 +879,7 @@ function blackCheck(){
     };
 
     Plotly.newPlot('figure7', data1, layout2, config);
-    
+
     if(screen.width < 769)
     {
         var update = {
@@ -977,7 +988,7 @@ function black1(){
         type: 'scatter',
         mode: 'markers'
     };
-      
+
     var data1 = [trace1];
     var data2 = [trace2];
     var data3 = [trace3, trace4];
@@ -1003,9 +1014,9 @@ function black1(){
             title: 'Amplitude (A)'
         }
     };
-      
+
     Plotly.newPlot('figure8', data1, layout1, config);
-    
+
     if(screen.width < 769)
     {
         var update = {
@@ -1023,7 +1034,7 @@ function black1(){
 
     Plotly.relayout('figure8', update);
     Plotly.newPlot('figure9', data2, layout2, config);
-    
+
     if(screen.width < 769)
     {
         var update = {
@@ -1041,7 +1052,7 @@ function black1(){
 
     Plotly.relayout('figure9', update);
     Plotly.newPlot('figure10', data3, layout1, config);
-    
+
     if(screen.width < 769)
     {
         var update = {
@@ -1184,7 +1195,7 @@ function defFunction(choice, signal){
         var wind = 5;
         var pad = Math.floor((wind - 1) / 2);
         var signalLength = signal.length;
-        
+
         for (var i = 0; i < signalLength; i++)
         {
             var sum = 0;
@@ -1242,7 +1253,7 @@ function blocks(){
                 inValues.push(0);
             }
         }
-        
+
         for(var i=0; i<=121; i++)
         {
             if(i<40+delayChoice)
@@ -1315,7 +1326,7 @@ function blocks(){
     };
 
     Plotly.newPlot('figure12', data1, layout1, config);
-    
+
     if(screen.width < 769)
     {
         var update = {
@@ -1333,7 +1344,7 @@ function blocks(){
 
     Plotly.relayout('figure12', update);
     Plotly.newPlot('figure13', data2, layout2, config);
-    
+
     if(screen.width < 769)
     {
         var update = {
@@ -1351,7 +1362,7 @@ function blocks(){
 
     Plotly.relayout('figure13', update);
     Plotly.newPlot('figure14', data1, layout2, config);
-    
+
     if(screen.width < 769)
     {
         var update = {
@@ -1373,7 +1384,7 @@ function blocks(){
 /* ---------------------------------- Blocks Checking ----------------------------------- */
 
 function blockCheck(){
-    
+
     var actual = yFinal;
 
     var b1 = document.getElementById("sig-namesBLK1").value;
@@ -1435,7 +1446,7 @@ function blockCheck(){
 
     // Shift and scale
     if(sigChoice==0)
-    {      
+    {
         for(var i=0; i<=121; i++)
         {
             if(i<40+delayHere)
@@ -1499,9 +1510,9 @@ function blockCheck(){
                 mode: 'markers'
             };
             var data1 = [trace1,trace2];
-        
+
             var config = {responsive: true}
-        
+
             var layout1 = {
                 title: 'Check It',
                 xaxis: {
@@ -1512,7 +1523,7 @@ function blockCheck(){
                 }
             };
             Plotly.newPlot('figure14', data1, layout1, config);
-            
+
             if(screen.width < 769)
             {
                 var update = {
@@ -1570,7 +1581,7 @@ function blockCheck(){
     };
 
     Plotly.newPlot('figure14', data1, layout1, config);
-    
+
     if(screen.width < 769)
     {
         var update = {
@@ -1585,7 +1596,7 @@ function blockCheck(){
             height: 400
         };
     }
-    
+
     Plotly.relayout('figure14', update);
 }
 
