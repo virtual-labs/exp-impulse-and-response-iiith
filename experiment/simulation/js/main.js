@@ -1,4 +1,3 @@
-
 function openPart(evt, name) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -778,24 +777,7 @@ function black(){
     }
 
     Plotly.relayout('figure5', update);
-    Plotly.newPlot('figure7', data4, layout2, config);
-
-    if(screen.width < 769)
-    {
-        var update = {
-            width: 0.9*screen.width,
-            height: 400
-        };
-    }
-    else
-    {
-        var update = {
-            width: 500,
-            height: 400
-        };
-    }
-
-    Plotly.relayout('figure7', update);
+    // Don't preload figure7 - it should only load when user clicks Check
 }
 
 // ------------------------------------------ Black Box Checking ----------------------------------------------------------
