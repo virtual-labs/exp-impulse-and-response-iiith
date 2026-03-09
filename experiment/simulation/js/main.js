@@ -305,11 +305,11 @@ function syst(){
             }
 
             var x1 = xValues1[i];
-            if(x1 >= 0 && x1 < 1)
+            if(x1 >= 0 && x1 < 5)
             {
                 sigValues1.push(am);
             }
-            else if(x1 >= 1 && x1 < 2)
+            else if(x1 >= 5 && x1 < 10)
             {
                 sigValues1.push(-am);
             }
