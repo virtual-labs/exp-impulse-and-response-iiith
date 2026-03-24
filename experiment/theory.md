@@ -18,13 +18,11 @@ We may not always know the exact inner working of the system, but it is possible
 
 A system is said to be linear if a superposition of input signals generates the same superposition of corresponding output signals. Let $H$ by a system which produces outputs $\textbf{y}_1[n]$ and $\textbf{y}_2[n]$ for input signals $\textbf{x}_1[n]$ and $\textbf{x}_2[n]$ respectively. If $\alpha$ and $\beta$ are any arbitrary constants, then the system $H$ is said to be linear if the input signal $\alpha \textbf{x}_1[n] + \beta \textbf{x}_2[n]$ produces the output $\alpha \textbf{y}_1[n] + \beta \textbf{y}_2[n]$.
 
-$$ \text{If} ~\textbf{x}\_1[n] \rightarrow \textbf{y}\_1[n]~ \text{and}~ \textbf{x}\_2[n] \rightarrow \textbf{y}\_2[n],$$
+$$ \text{If} ~\textbf{x}_1[n] \rightarrow \textbf{y}_1[n]~ \text{and}~ \textbf{x}_2[n] \rightarrow \textbf{y}_2[n],$$
 
-$$ \text{then}, \text{Linearity} \Rightarrow \alpha \textbf{x}\_1[n] + \beta \textbf{x}\_2[n] \rightarrow \alpha \textbf{y}\_1[n] + \beta \textbf{y}\_2[n]$$
+$$ \text{then}, \text{Linearity} \Rightarrow \alpha \textbf{x}_1[n] + \beta \textbf{x}_2[n] \rightarrow \alpha \textbf{y}_1[n] + \beta \textbf{y}_2[n]$$
 
 The delay system above is an example of a linear system.
-
-Examples of linear and non-linear systems.
 
 ### Time-invariance
 
@@ -37,8 +35,6 @@ A system $H$ is said to be time-invariant if the system behaviour does not chang
 From above, if the cascading order of the delay system $D_{\Delta}$ and the system $H$ does not change the output, then the system $H$ is said to be a time-invariant system.
 
 It is easy to verify that the delay system itself is an example of a time-invariant system.
-
-Examples of time-invariant and time-variant systems.
 
 Systems which possess both the properties of linearity & time-invariance are called LTI systems.
 
@@ -63,7 +59,7 @@ $$\textbf{y}[n] = \textbf{x}[n] * \textbf{h}[n] = \sum_{-\infty}^{\infty} \textb
 - Scaling: $\textbf{h}[n] = \alpha \delta [n]$
 - Differentiator: $ \textbf{h}[n] = \delta [n] - \delta [n-1] $
 - Accumulator: $$\textbf{h}[n] = u[n] = \left\{\begin{matrix}
-	1 \quad n\geq 0 \\
+ 1 \quad n\geq 0 \\
   0 \quad n<0
   \end{matrix}\right.$$
 
@@ -79,15 +75,15 @@ Thus, for a delay system with impulse response $\textbf{h}[n] = \delta [n - \Del
 
 ## LTI system application – moving average
 
-LTI systems have been useful in a number of applications including audio and speech signal processing. A very basic requirement of such systems is to perform noise removal. Typically, a noisy signal consists of a rapidly fluctuating noise component and a signal component with relatively slow fluctuations. For example, consider the sinusoidal signal burried in noise
+LTI systems are useful in a number of applications including audio and speech signal processing. A very basic requirement of such systems is to perform noise removal. Typically, a noisy signal consists of a rapidly fluctuating noise component and a signal component with relatively slow fluctuations. For example, consider the sinusoidal signal burried in noise
 $$ x[n] = \sin(\omega_0 n) + w[n] $$
 
 where $w[n]$ is the noise component. Since the rate of fluctuations of the noise and signal components are different, this can be used to selectively reduce the noise. We demonstrate how this can be achieved using a simple moving average system. A moving average system simply computes an average of $M$ samples around the given point. As expected, this can reduce the rapid fluctuations in the noise component with relatively smaller impact on the slowly changing signal component. An $M$-length moving average system has impulse response given by
 
 $$
-\textbf{h}[n] = u[n] = \left\{\begin{matrix}
-1 \quad n\geq 0 \\
-0 \quad n<0
+\textbf{h}[n] = \left\{\begin{matrix}
+1 \quad -\frac{M}{2} \leq n \leq \frac{M}{2} \\
+0 \quad \quad \quad \text{otherwise}
 \end{matrix}\right.
 $$
 
@@ -95,7 +91,7 @@ When the input signal is $x[n]$, the output of this system is given by
 
 $$y[n] = \sum_{k = -M/2}^{k = M/2} x[n+k] $$
 
-An example of a noisy signal x[n] and the signal obtained after passing it through a moving average system of length $M = 5 $ is shown below.
+An example of a noisy sinusoidal signal x[n] and the signal obtained after passing it through a moving average system of length $M = 5 $ is shown below.
 
   <p align="center"><img src="./images/newplot.png" alt="drawing" width="400"/>
 

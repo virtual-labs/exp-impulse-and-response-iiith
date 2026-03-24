@@ -2,7 +2,7 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "A system with input $x(t)$, gives the output signal $y(t)=x^2(t)+x\\left(t^2\\right)$. Which of the following properties does this system have?",
+      "question": "A system with input $x[n]$, gives the output signal $y[n]=x^2[n]+x\\left[n^2\\right]$. Which of the following properties does this system have?",
       "answers": {
         "a": "Only linearity",
         "b": "Only time-invariance",
@@ -13,14 +13,25 @@
       "difficulty": "Intermediate"
     },
     {
-      "question": "Find the magnitude of a 5-point moving average filter $H(\\omega)$ where the output of the system is given by $y[n]=1 / 5[x[n+2]+x[n+1]+x[n]+x[n-1]+x[n-2]]$ ?",
+      "question": "A unit step signal is given as input to two distinct systems - a differentiator system and an accumalator system. The corresponding outputs will be?",
       "answers": {
-        "a": "$\\frac{1}{5}(1+2(\\cos (\\omega)+\\cos (2 \\omega)))$",
-        "b": "$\\cos (\\omega)+\\cos (2 \\omega)$",
-        "c": "$1+e^{j \\omega}+e^{2 j \\omega}$",
-        "d": "$\\frac{1}{5}\\left(1+e^{-j \\omega}+e^{2 j \\omega}\\right)$"
+        "a": "A unit step and a ramp signal respectively",
+        "b": "A unit ramp and a unit impulse respectively",
+        "c": "A unit impulse and a ramp signal respectively",
+        "d": "None of these"
       },
-      "correctAnswer": "a",
+      "correctAnswer": "c",
+      "difficulty": "Intermediate"
+    },
+    {
+      "question": "A unit step signal is given as input to a cascade of two systems - a differentiator system and an accumalator system. The corresponding outputs will be?",
+      "answers": {
+        "a": "A unit step and a ramp signal respectively",
+        "b": "A unit impulse and a unit step signal respectively",
+        "c": "A unit impulse and a ramp signal respectively",
+        "d": "None of these"
+      },
+      "correctAnswer": "b",
       "difficulty": "Intermediate"
     },
     {
@@ -31,7 +42,7 @@
         "c": "exactly 2 impulses",
         "d": "cannot be predicted"
       },
-      "correctAnswer": "a",
+      "correctAnswer": "b",
       "difficulty": "Intermediate"
     },
     {
