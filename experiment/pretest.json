@@ -24,7 +24,7 @@
       "difficulty": "beginner"
     },
     {
-      "question": "For a system with input $[n]$, let $y[n]$ denote the output signal. Which of the following system is LTI?",
+      "question": "For a system with input $x[n]$, let $y[n]$ denote the output signal. Which of the following system is LTI?",
       "answers": {
         "a": "$y[n]=5+x[n]$",
         "b": "$y[n]=n+x[n]$",
