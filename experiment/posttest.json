@@ -2,38 +2,59 @@
   "version": 2.0,
   "questions": [
     {
-      "question": "This is a Sample Question 1?",
+      "question": "A system with input $x[n]$, gives the output signal $y[n]=x^2[n]+x\\left[n^2\\right]$. Which of the following properties does this system have?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
+        "a": "Only linearity",
+        "b": "Only time-invariance",
+        "c": "Both linearity and time-invariance",
+        "d": "None of these"
       },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
+      "correctAnswer": "d",
+      "difficulty": "Intermediate"
     },
     {
-      "question": "This is a Sample Question 2?",
+      "question": "A unit step signal is given as input to two distinct systems - a differentiator system and an accumalator system. The corresponding outputs will be?",
       "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
+        "a": "A unit step and a ramp signal respectively",
+        "b": "A unit ramp and a unit impulse respectively",
+        "c": "A unit impulse and a ramp signal respectively",
+        "d": "None of these"
       },
       "correctAnswer": "c",
-      "difficulty": "beginner"
+      "difficulty": "Intermediate"
+    },
+    {
+      "question": "A unit step signal is given as input to a cascade of two systems - a differentiator system and an accumalator system. The corresponding outputs will be?",
+      "answers": {
+        "a": "A unit step and a ramp signal respectively",
+        "b": "A unit impulse and a unit step signal respectively",
+        "c": "A unit impulse and a ramp signal respectively",
+        "d": "None of these"
+      },
+      "correctAnswer": "b",
+      "difficulty": "Intermediate"
+    },
+    {
+      "question": "An impulse input signal generates two impulses at the output for an LTI system. If sum of two distinct impulses is given as input to this system, the output will contain",
+      "answers": {
+        "a": "exactly 4 impulses",
+        "b": "3 or 4 impulses",
+        "c": "exactly 2 impulses",
+        "d": "cannot be predicted"
+      },
+      "correctAnswer": "b",
+      "difficulty": "Intermediate"
+    },
+    {
+      "question": "When a moving average system of length $M$ is used for noise suppression,",
+      "answers": {
+        "a": "For large M, there is more suppression of noise",
+        "b": "For small M, there is more suppression of noise",
+        "c": "the system does not change the signal at all",
+        "d": "None of these"
+      },
+      "correctAnswer": "a",
+      "difficulty": "Intermediate"
     }
   ]
 }
