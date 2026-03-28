@@ -1,0 +1,60 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "For a system with input $x[n]$, let $y[n]$ denote the output signal. Which of the following system is linear?",
+      "answers": {
+        "a": "$y[n]=x^2[n]$",
+        "b": "$y[n]=\\sin (x[n])$",
+        "c": "$y[n]=5 \\cdot x[n]$",
+        "d": "$y[n]=x\\left(n^2\\right)$"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "For a system with input $x[n]$, let $y[n]$ denote the output signal. Which of the following system is time-invariant?",
+      "answers": {
+        "a": "$y[n]=x^2[n]$",
+        "b": "$y[n]=n x[n]$",
+        "c": "$y[n]=n+x[n]$",
+        "d": "$y[n]=x\\left(n^2\\right)$"
+      },
+      "correctAnswer": "a",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "For a system with input $x[n]$, let $y[n]$ denote the output signal. Which of the following system is LTI?",
+      "answers": {
+        "a": "$y[n]=5+x[n]$",
+        "b": "$y[n]=n+x[n]$",
+        "c": "$y[n]=x[n-5]$",
+        "d": "All of these"
+      },
+      "correctAnswer": "c",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "If the impulse response of a system is $\\delta[n] + \\delta[n-5]$, then its step response is given by",
+      "answers": {
+        "a": "$u[n]+u[n+5]$",
+        "b": "$u[n]+u[n-5]$",
+        "c": "$u[n]-u[n-5]$",
+        "d": "$u[n]-u[n+5]$"
+      },
+      "correctAnswer": "b",
+      "difficulty": "beginner"
+    },
+    {
+      "question": "Which of the following statement is false?",
+      "answers": {
+        "a": "For a linear system, scaling the input proportionately scales the output",
+        "b": "For an LTI system, impulse response fully describes the system",
+        "c": "For a time-invariant system, a delay in the input does not change the output",
+        "d": "For an LTI system, given the impulse response, its step response can be always computed"
+      },
+      "correctAnswer": "c",
+      "difficulty": "intermediate"
+    }
+  ]
+}
