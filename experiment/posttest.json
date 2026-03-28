@@ -10,7 +10,7 @@
         "d": "None of these"
       },
       "correctAnswer": "d",
-      "difficulty": "Intermediate"
+      "difficulty": "intermediate"
     },
     {
       "question": "A unit step signal is given as input to two distinct systems - a differentiator system and an accumalator system. The corresponding outputs will be?",
@@ -21,7 +21,7 @@
         "d": "None of these"
       },
       "correctAnswer": "c",
-      "difficulty": "Intermediate"
+      "difficulty": "intermediate"
     },
     {
       "question": "A unit step signal is given as input to a cascade of two systems - a differentiator system and an accumalator system. The corresponding outputs will be?",
@@ -32,7 +32,7 @@
         "d": "None of these"
       },
       "correctAnswer": "b",
-      "difficulty": "Intermediate"
+      "difficulty": "intermediate"
     },
     {
       "question": "An impulse input signal generates two impulses at the output for an LTI system. If sum of two distinct impulses is given as input to this system, the output will contain",
@@ -43,7 +43,7 @@
         "d": "cannot be predicted"
       },
       "correctAnswer": "b",
-      "difficulty": "Intermediate"
+      "difficulty": "intermediate"
     },
     {
       "question": "When a moving average system of length $M$ is used for noise suppression,",
@@ -54,7 +54,7 @@
         "d": "None of these"
       },
       "correctAnswer": "a",
-      "difficulty": "Intermediate"
+      "difficulty": "intermediate"
     }
   ]
 }
