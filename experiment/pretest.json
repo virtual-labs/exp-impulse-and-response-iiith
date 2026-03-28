@@ -54,7 +54,7 @@
         "d": "For an LTI system, given the impulse response, its step response can be always computed"
       },
       "correctAnswer": "c",
-      "difficulty": "Intermediate"
+      "difficulty": "intermediate"
     }
   ]
 }
