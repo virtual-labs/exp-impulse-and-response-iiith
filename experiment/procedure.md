@@ -1,6 +1,4 @@
-### Procedure
-
-#### Impulse and Step Response
+### Impulse and Step Response
 
 This section requires selection of a system, and visualizing the impulse and step response of an LTI system by selecting "**Unit Impulse**" or "**Unit Step**". The objective of this section is to visualize the impulse and step responses of some LTI systems and identify the working of the system. Click on the "**Check**" button to visualize the plots. Steps to be done are as follows
 
@@ -10,7 +8,7 @@ This section requires selection of a system, and visualizing the impulse and ste
 
 The plot is obtained and it represents the impulse or step response of the selected system.
 
-#### LTI Systems
+### LTI Systems
 
 This section requires selection of a system, and visualizing the working of an LTI system by selecting an input signal. The objective of this section is to visualize how various LTI systems work on different input signals. Click on the "**Check**" button to visualize the plots. Steps to be done are as follows
 
@@ -20,7 +18,7 @@ This section requires selection of a system, and visualizing the working of an L
 
 The plot is obtained and it represents the output of the selected LTI system when the input to the LTI system is the selected signal.
 
-#### LTI System Application
+### LTI System Application
 
 This section requires selection of a signal, entering a variance value for the noise to be added to the signal to make it noisy and a window size to implement a Moving Average System. The objective of this section is to implement a Moving Average System, and use it for denoising a noisy version of the signal. Click on the "**Check**" button to visualize the plots. Steps to be done are as follows
 
@@ -41,7 +39,7 @@ The plot is obtained and it represents the output of the Moving Average System w
 
 #### Quiz 1
 
-This section is to test the understanding, get feedback and run simulations over randomly generated inputs. The objective of this section is to test the understanding of the working of an LTI System. In the first block, we have an input signal, which is a Unit Impulse and the output of the unknown LTI system is given. In the next block, another input signal is given, to the **same** LTI system and the output is not provided. 
+This section is to test the understanding, get feedback and run simulations over randomly generated inputs. The objective of this section is to test the understanding of the working of an LTI System. In the first block, we have an input signal, which is a Unit Impulse and the output of the unknown LTI system is given. In the next block, another input signal is given, to the **same** LTI system and the output is not provided.
 
 The task here is to identify the scale parameter (by how much will the input be scaled) and the shift parameter (by how much will the input be shifted). Click on the "**Check**" button to visualize the plot for the values entered, which would be useful for feedback. Steps to be done are as follows
 
@@ -65,7 +63,7 @@ The plot is obtained and it represents the output of the unknown LTI system when
 
 The observartions tab at the bottom shows comments on whether the given parameters are correct and the output which is constructed from it, is the actual output of the given LTI System.
 
-#### Blocks Quiz
+### Blocks Quiz
 
 This section is to test the understanding, get feedback and run simulations over randomly generated inputs. The objective of this section is to test the understanding of the working of an LTI System. In this section, we have an input signal given and the output of an unknown LTI system is also given. Further, we assume the unknown LTI system can be implemented using three LTI systems in cascade. The task here is to identify these three systems such that the final designed system matches with the earlier provided output.
 
